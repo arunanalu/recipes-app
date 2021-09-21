@@ -15,14 +15,15 @@ export default function Login() {
 
   return (
     <form>
-      <input type="email" placeholder="Email" name="email" />
+      <input type="email" placeholder="Email" name="email" data-testid="email-input" />
       <input
         type="text"
         placeholder="Senha"
         name="password"
         onChange={ handleChange }
+        data-testid="password-input"
       />
-      <button type="submit"> Login </button>
+      <button type="submit" data-testid="login-submit-btn"> Login </button>
     </form>
   );
 }
