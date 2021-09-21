@@ -20,7 +20,6 @@ export default function Header() {
         >
           <img data-testid="search-top-btn" src={ searchIcon } alt="icone-perfil" />
         </button>
-        {/* <input type="text" data-testid="search-input" style={ display } /> */}
         <SearchHeader display={ display } />
       </div>
     </header>

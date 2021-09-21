@@ -5,10 +5,13 @@ import myContext from './mycontext';
 export default function MyProvider({ children }) {
   const [user, setUser] = useState('');
   const [data, setData] = useState([]);
+  const [resultSearch, setResultSearch] = useState({});
   console.log(data);
   const contextValue = { user, setUser };
   return (
-    <myContext.Provider value={ { contextValue, setData } }>
+    <myContext.Provider
+      value={ { contextValue, setData, resultSearch, setResultSearch } }
+    >
       {children}
     </myContext.Provider>
   );
