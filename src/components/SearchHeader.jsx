@@ -1,17 +1,31 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
+import FoodsAndDrinks from '../Services/fetchApiFoodsandDrinks';
+import myContext from '../context/mycontext';
 
 export default function SearchHeader({ display }) {
+  const { setData } = useContext(myContext);
+
   const [searchData, setSearchData] = useState({
     searchText: '',
     searchRadio: 'ingrediente',
   });
-
+  const [dataFetch, setDataFetch] = useState([]);
+  console.log(dataFetch);
   function handleChange({ target: { name, value } }) {
     setSearchData({
       ...searchData,
       [name]: value,
     });
+  }
+
+  async function searchSubmit() {
+    if (searchData.searchRadio === 'primeira' && searchData.searchText.length > 1) {
+      return global.alert('Sua busca deve conter somente 1 (um) caracter');
+    }
+    const result = await FoodsAndDrinks(searchData.searchRadio, searchData.searchText);
+    setData(result);
+    return setDataFetch(result);
   }
 
   const boolean = true;
@@ -59,7 +73,13 @@ export default function SearchHeader({ display }) {
           onChange={ handleChange }
         />
       </label>
-      <button type="button" data-testid="exec-search-btn">Buscar</button>
+      <button
+        type="button"
+        data-testid="exec-search-btn"
+        onClick={ searchSubmit }
+      >
+        Buscar
+      </button>
     </div>
   );
 }
