@@ -10,7 +10,6 @@ export default function PageComidas() {
     <div>
       <Header />
       <br />
-      <h1>Comidas</h1>
       { data.map((comida, index) => {
         if (index < NUMBER) {
           return (<ReceitaCard

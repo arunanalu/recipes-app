@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
-import PropTypes from 'prop-types';
 import { useLocation } from 'react-router';
 import fetchFoods, { fetchDrinks } from '../Services/fetchApiFoodsandDrinks';
 import myContext from '../context/mycontext';
 import RedirectDetailsPage from '../utils/RedirectDetailsPage';
+import VerifyFirsLetter from '../utils/VerifyFirstLetter';
 
-export default function SearchHeader({ display }) {
+export default function SearchHeader() {
   const { setData, setResultSearch } = useContext(myContext);
   const location = useLocation();
   const [searchData, setSearchData] = useState({
@@ -23,25 +23,21 @@ export default function SearchHeader({ display }) {
   }
 
   async function searchSubmitFood() {
-    if (searchData.searchRadio === 'primeira' && searchData.searchText.length > 1) {
-      return global.alert('Sua busca deve conter somente 1 (um) caracter');
-    }
+    VerifyFirsLetter(searchData);
     const result = await fetchFoods(searchData.searchRadio, searchData.searchText);
-    setData(result.meals);
-    if (result.meals === 0) {
+    if (result.meals === 0 || result.meals === null) {
       return global.alert(
         'Sinto muito, não encontramos nenhuma receita para esses filtros.',
       );
     }
+    setData(result.meals);
     return setDataFetch(result.meals);
   }
 
   async function searchSubmitDrink() {
-    if (searchData.searchRadio === 'primeira' && searchData.searchText.length > 1) {
-      return global.alert('Sua busca deve conter somente 1 (um) caracter');
-    }
+    VerifyFirsLetter(searchData);
     const result = await fetchDrinks(searchData.searchRadio, searchData.searchText);
-    if (result.drinks === 0) {
+    if (result.drinks === 0 || result.drinks === null) {
       return global.alert(
         'Sinto muito, não encontramos nenhuma receita para esses filtros.',
       );
@@ -53,11 +49,10 @@ export default function SearchHeader({ display }) {
   const boolean = true;
 
   return (
-    <div style={ display }>
+    <div>
       <input
         type="text"
         data-testid="search-input"
-        style={ display }
         name="searchText"
         onChange={ handleChange }
       />
@@ -110,7 +105,3 @@ export default function SearchHeader({ display }) {
     </div>
   );
 }
-
-SearchHeader.propTypes = {
-  display: PropTypes.objectOf(PropTypes.any).isRequired,
-};
