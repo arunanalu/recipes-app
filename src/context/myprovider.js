@@ -10,7 +10,7 @@ export default function MyProvider({ children }) {
   const contextValue = { user, setUser };
   return (
     <myContext.Provider
-      value={ { contextValue, setData, resultSearch, setResultSearch } }
+      value={ { contextValue, setData, resultSearch, setResultSearch, data } }
     >
       {children}
     </myContext.Provider>

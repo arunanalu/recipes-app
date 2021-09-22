@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useLocation } from 'react-router';
 import fetchFoods, { fetchDrinks } from '../Services/fetchApiFoodsandDrinks';
 import myContext from '../context/mycontext';
+import RedirectDetailsPage from '../utils/RedirectDetailsPage';
 
 export default function SearchHeader({ display }) {
   const { setData, setResultSearch } = useContext(myContext);
@@ -13,7 +14,7 @@ export default function SearchHeader({ display }) {
   });
 
   const [dataFetch, setDataFetch] = useState([]);
-  console.log(dataFetch);
+
   function handleChange({ target: { name, value } }) {
     setSearchData({
       ...searchData,
@@ -26,8 +27,13 @@ export default function SearchHeader({ display }) {
       return global.alert('Sua busca deve conter somente 1 (um) caracter');
     }
     const result = await fetchFoods(searchData.searchRadio, searchData.searchText);
-    setData(result);
-    return setDataFetch(result);
+    setData(result.meals);
+    if (result.meals === 0) {
+      return global.alert(
+        'Sinto muito, não encontramos nenhuma receita para esses filtros.',
+      );
+    }
+    return setDataFetch(result.meals);
   }
 
   async function searchSubmitDrink() {
@@ -35,8 +41,13 @@ export default function SearchHeader({ display }) {
       return global.alert('Sua busca deve conter somente 1 (um) caracter');
     }
     const result = await fetchDrinks(searchData.searchRadio, searchData.searchText);
-    setData(result);
-    return setDataFetch(result);
+    if (result.drinks === 0) {
+      return global.alert(
+        'Sinto muito, não encontramos nenhuma receita para esses filtros.',
+      );
+    }
+    setData(result.drinks);
+    return setDataFetch(result.drinks);
   }
 
   const boolean = true;
@@ -87,7 +98,7 @@ export default function SearchHeader({ display }) {
       <button
         type="button"
         data-testid="exec-search-btn"
-        onClick={ () => {
+        onClick={ async () => {
           setResultSearch(searchData);
           return location.pathname === '/comidas'
             ? searchSubmitFood() : searchSubmitDrink();
@@ -95,6 +106,7 @@ export default function SearchHeader({ display }) {
       >
         Buscar
       </button>
+      { dataFetch.length === 1 && RedirectDetailsPage(location, dataFetch) }
     </div>
   );
 }
