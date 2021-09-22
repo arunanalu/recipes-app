@@ -7,6 +7,7 @@ export default function Profile() {
   const emailStorage = JSON.parse(localStorage.getItem('user'));
   return (
     <div>
+      <Header />
       <p data-testid="profile-email">{emailStorage.email}</p>
       <button
         onClick={ () => history.push('/receitas-feitas') }
