@@ -1,12 +1,15 @@
 import React, { useContext, useEffect } from 'react';
 import myContext from '../context/mycontext';
 import fetchFoods from '../Services/fetchApiFoodsandDrinks';
+import Filter from './Filter';
 import Header from './Header';
 import ReceitaCard from './ReceitaCard';
 
 export default function PageComidas() {
   const { data, setData } = useContext(myContext);
   const NUMBER = 12;
+  const URL = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
+  const TYPE = 'meals';
 
   useEffect(() => {
     async function requisition() {
@@ -19,6 +22,7 @@ export default function PageComidas() {
   return (
     <div>
       <Header />
+      <Filter url={ URL } type={ TYPE } />
       <br />
       { data.map((comida, index) => {
         if (index < NUMBER) {
