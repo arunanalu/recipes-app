@@ -7,7 +7,7 @@ import renderWithRouter from './renderWithRouter';
 
 describe('Testa componente tela de login', () => {
   test('Se tem input de email e senha fucionais', () => {
-    renderWithRouter(<App />);
+    renderWithRouter(<Login />);
     const emailInput = screen.getByPlaceholderText('Email');
     expect(emailInput).toBeInTheDocument();
 
