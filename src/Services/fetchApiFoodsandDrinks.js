@@ -15,6 +15,11 @@ const fetchFoods = async (search, input) => {
       .then((response) => response.json());
     return resultFetch;
   }
+  case 'semBusca': {
+    const resultFetch = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=')
+      .then((response) => response.json());
+    return resultFetch;
+  }
   default:
     console.log('error');
   }
@@ -34,6 +39,11 @@ export const fetchDrinks = async (search, input) => {
   }
   case 'primeira': {
     const resultFetch = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${input}`)
+      .then((response) => response.json());
+    return resultFetch;
+  }
+  case 'semBusca': {
+    const resultFetch = await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=')
       .then((response) => response.json());
     return resultFetch;
   }

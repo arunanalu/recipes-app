@@ -1,11 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import myContext from '../context/mycontext';
+import { fetchDrinks } from '../Services/fetchApiFoodsandDrinks';
 import Header from './Header';
 import ReceitaCard from './ReceitaCard';
 
 export default function PageBebidas() {
-  const { data } = useContext(myContext);
+  const { data, setData } = useContext(myContext);
   const NUMBER = 12;
+
+  useEffect(() => {
+    async function requisition() {
+      const result = await fetchDrinks('semBusca');
+      setData(result.drinks);
+    }
+    requisition();
+  }, [setData]);
+
   return (
     <div>
       <Header />
