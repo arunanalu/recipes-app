@@ -10,6 +10,7 @@ export default function PageComidas() {
   const NUMBER = 12;
   const URL = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
   const TYPE = 'meals';
+  console.log(data);
 
   useEffect(() => {
     async function requisition() {

@@ -14,6 +14,7 @@ export default function Filter({ url, type }) {
           <button
             type="button"
             key={ index }
+            data-testid={ `${element.strCategory}-category-filter` }
           >
             {element.strCategory}
           </button>),
