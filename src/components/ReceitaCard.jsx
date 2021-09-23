@@ -6,7 +6,7 @@ export default function ReceitaCard({ thumb, index, name }) {
     <div data-testid={ `${index}-recipe-card` }>
       <img
         data-testid={ `${index}-card-img` }
-        width={ 50 }
+        width={ 150 }
         src={ thumb }
         alt={ name }
       />
@@ -17,6 +17,6 @@ export default function ReceitaCard({ thumb, index, name }) {
 
 ReceitaCard.propTypes = {
   thumb: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
+  index: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
 };
