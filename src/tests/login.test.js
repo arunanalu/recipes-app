@@ -1,7 +1,6 @@
 import { screen } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import App from '../App';
 import Login from '../pages/Login';
 import renderWithRouter from './renderWithRouter';
 
