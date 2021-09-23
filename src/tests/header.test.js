@@ -25,6 +25,7 @@ describe('Testa o Header em diferentes páginas', () => {
   });
   test('Testa o Header na página de perfil', () => {
     const { history } = renderWithRouter(<App />);
+    localStorage.setItem('user', JSON.stringify({ email: 'teste@gmail.com' }));
     history.push('/perfil');
     expect(screen.getByText(/perfil/i)).toBeInTheDocument();
   });
