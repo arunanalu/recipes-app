@@ -15,7 +15,7 @@ export default function PageComidas() {
           return (<ReceitaCard
             key={ comida.idMeal }
             thumb={ comida.strMealThumb }
-            index={ comida.idMeal }
+            index={ index }
             name={ comida.strMeal }
           />);
         }

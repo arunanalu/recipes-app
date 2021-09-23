@@ -15,7 +15,7 @@ export default function PageBebidas() {
           return (<ReceitaCard
             key={ bebida.idDrink }
             thumb={ bebida.strDrinkThumb }
-            index={ bebida.idDrink }
+            index={ index }
             name={ bebida.strDrink }
           />);
         }
