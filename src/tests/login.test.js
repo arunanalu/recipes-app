@@ -1,12 +1,12 @@
 import { screen } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import App from '../App';
+import Login from '../pages/Login';
 import renderWithRouter from './renderWithRouter';
 
 describe('Testa componente tela de login', () => {
   test('Se tem input de email e senha fucionais', () => {
-    renderWithRouter(<App />);
+    renderWithRouter(<Login />);
     const emailInput = screen.getByPlaceholderText('Email');
     expect(emailInput).toBeInTheDocument();
 
@@ -14,7 +14,7 @@ describe('Testa componente tela de login', () => {
     expect(passwordInput).toBeInTheDocument();
   });
   test('Se o botão começa desabilitado e muda para a pagina /comidas', () => {
-    const { history } = renderWithRouter(<App />);
+    const { history } = renderWithRouter(<Login />);
     const mockEmail = 'alguem@alguem.com';
     const mockPassword = '1234567';
     const emailInput = screen.getByPlaceholderText('Email');

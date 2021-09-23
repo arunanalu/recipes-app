@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 
-export default function Login({ history }) {
+export default function Login() {
+  const history = useHistory();
   const [user, setUser] = useState({
     email: '',
     password: '',

@@ -2,11 +2,10 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import myContext from './mycontext';
 
-export default function MyProvider({ children }) {
-  const [user, setUser] = useState('');
+export default function MyProvider({ children }, usert = '') {
+  const [user, setUser] = useState(usert);
   const [data, setData] = useState([]);
   const [resultSearch, setResultSearch] = useState({});
-  console.log(data);
   const contextValue = { user, setUser };
   return (
     <myContext.Provider
