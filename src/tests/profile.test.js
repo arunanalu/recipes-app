@@ -1,21 +1,22 @@
 import { screen } from '@testing-library/dom';
-import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import Profile from '../pages/Profile';
+import App from '../App';
 import renderWithRouter from './renderWithRouter';
 
-describe('Testa componente tela de perfil', () => {
+describe('Testa tela de perfil', () => {
   beforeEach(() => {
     localStorage.setItem('user', '{ "email": "email@mail.com" }');
   });
   test('Se o email do user aparece na tela', () => {
-    render(<Profile />);
+    const { history } = renderWithRouter(<App />);
+    history.push('/perfil');
     const email = screen.getByText('email@mail.com');
     expect(email).toBeInTheDocument();
   });
   test('Se o botão de receitas feitas redireciona para a tela correta', () => {
-    const { history } = renderWithRouter(<Profile />);
+    const { history } = renderWithRouter(<App />);
+    history.push('/perfil');
     const recipesMadeBtn = screen.getByRole('button', {
       name: 'Receitas Feitas',
     });
@@ -25,7 +26,8 @@ describe('Testa componente tela de perfil', () => {
     expect(pathname).toBe('/receitas-feitas');
   });
   test('Se o botão de receitas favoritas redireciona para tela correta', () => {
-    const { history } = renderWithRouter(<Profile />);
+    const { history } = renderWithRouter(<App />);
+    history.push('/perfil');
     const favoritesRecipesBtn = screen.getByRole('button', {
       name: 'Receitas Favoritas',
     });
@@ -35,7 +37,8 @@ describe('Testa componente tela de perfil', () => {
     expect(pathname).toBe('/receitas-favoritas');
   });
   test('Se o botão de sair redireciona para a tela correta', () => {
-    const { history } = renderWithRouter(<Profile />);
+    const { history } = renderWithRouter(<App />);
+    history.push('/perfil');
     const leaveBtn = screen.getByRole('button', {
       name: 'Sair',
     });
