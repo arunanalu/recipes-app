@@ -1,8 +1,8 @@
 import { screen } from '@testing-library/dom';
-import { render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+// import { render } from '@testing-library/react';
+// import userEvent from '@testing-library/user-event';
 import React from 'react';
-import PageBebidas from '../components/PageBebidas';
+// import PageBebidas from '../components/PageBebidas';
 import renderWithRouter from './renderWithRouter';
 import App from '../App';
 
