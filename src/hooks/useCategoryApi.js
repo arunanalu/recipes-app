@@ -11,7 +11,7 @@ export default function useCategoryApi(url) {
       setLoading(true);
     }
     categoryApi();
-  }, []);
+  }, [url]);
 
   return [category, loading];
 }
