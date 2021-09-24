@@ -23,7 +23,11 @@ export default function PageBebidas() {
   return (
     <div>
       <Header />
-      <Filter urlCategory={ URL_CATEGORY } type={ TYPE } urlCategoryCard={ URL_DRINKCATEGORY } />
+      <Filter
+        urlCategory={ URL_CATEGORY }
+        type={ TYPE }
+        urlCategoryCard={ URL_DRINKCATEGORY }
+      />
       <br />
       { data.map((bebida, index) => {
         if (index < NUMBER) {

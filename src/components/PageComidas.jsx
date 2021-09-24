@@ -23,7 +23,11 @@ export default function PageComidas() {
   return (
     <div>
       <Header />
-      <Filter urlCategory={ URL_CATEGORY } type={ TYPE } urlCategoryCard={ URL_FOODSCATEGORY } />
+      <Filter
+        urlCategory={ URL_CATEGORY }
+        type={ TYPE }
+        urlCategoryCard={ URL_FOODSCATEGORY }
+      />
       <br />
       { data.map((comida, index) => {
         if (index < NUMBER) {
