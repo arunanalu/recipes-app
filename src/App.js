@@ -11,6 +11,9 @@ import PageComidas from './components/PageComidas';
 import PageBebidas from './components/PageBebidas';
 import DetailsPageComidas from './components/DetailsPageComidas';
 import DetailsPageBebidas from './components/DetailsPageBebidas';
+import FoodsIngredients from './pages/FoodsIngredients';
+import DrinksIngredients from './pages/DrinksIngredients';
+import ExploreIngredientsArea from './pages/ExploreIngredientsArea';
 
 function App() {
   return (
@@ -24,6 +27,21 @@ function App() {
       <Route exact path="/bebidas" component={ PageBebidas } />
       <Route exact path="/comidas/:id" component={ DetailsPageComidas } />
       <Route exact path="/bebidas/:id" component={ DetailsPageBebidas } />
+      <Route
+        exact
+        path="/explorar/comidas/ingredientes"
+        component={ FoodsIngredients }
+      />
+      <Route
+        exact
+        path="/explorar/comidas/area"
+        component={ ExploreIngredientsArea }
+      />
+      <Route
+        exact
+        path="/explorar/bebidas/ingredientes"
+        component={ DrinksIngredients }
+      />
     </Switch>
   );
 }
