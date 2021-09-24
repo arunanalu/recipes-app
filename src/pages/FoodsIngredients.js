@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Footer from '../components/Footer';
 import IngredientsCard from '../components/IngredientsCard';
 import { fetchIngredients } from '../Services/fetchApiFoodsandDrinks';
 
@@ -19,6 +20,7 @@ export default function FoodsIngredients() {
           name={ ingredient.strIngredient }
         />
       ))}
+      <Footer />
     </div>
   );
 }

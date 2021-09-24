@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router';
+import Footer from '../components/Footer';
 
 export default function ExploreDrinks() {
   const history = useHistory();
@@ -12,13 +13,6 @@ export default function ExploreDrinks() {
       >
         Por Ingredientes
       </button>
-      {/* <button
-        onClick={ () => history.push('/explorar/bebidas/ingredientes') }
-        data-testid="explore-by-area"
-        type="button"
-      >
-        Por Local de Origem
-      </button> */}
       <button
         onClick={ () => history.push('') }
         data-testid="explore-surprise"
@@ -26,6 +20,7 @@ export default function ExploreDrinks() {
       >
         Me Surpreenda!
       </button>
+      <Footer />
     </>
   );
 }
