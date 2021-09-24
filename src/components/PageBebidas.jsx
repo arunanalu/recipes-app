@@ -6,9 +6,10 @@ import Header from './Header';
 import ReceitaCard from './ReceitaCard';
 
 export default function PageBebidas() {
-  const { data, setData, filter, controlFilter } = useContext(myContext);
+  const { data, setData } = useContext(myContext);
   const NUMBER = 12;
-  const URL = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list';
+  const URL_CATEGORY = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list';
+  const URL_DRINKCATEGORY = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=';
   const TYPE = 'drinks';
 
   useEffect(() => {
@@ -19,18 +20,12 @@ export default function PageBebidas() {
     requisition();
   }, [setData]);
 
-  const filterData = (d, k) => {
-    if (k) {
-      return d.filter((el) => el.strCategory.includes(filter));
-    } return d;
-  };
-
   return (
     <div>
       <Header />
-      <Filter url={ URL } type={ TYPE } />
+      <Filter urlCategory={ URL_CATEGORY } type={ TYPE } urlCategoryCard={ URL_DRINKCATEGORY } />
       <br />
-      { filterData(data, controlFilter).map((bebida, index) => {
+      { data.map((bebida, index) => {
         if (index < NUMBER) {
           return (<ReceitaCard
             key={ bebida.idDrink }
