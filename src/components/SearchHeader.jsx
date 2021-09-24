@@ -6,7 +6,7 @@ import RedirectDetailsPage from '../utils/RedirectDetailsPage';
 import VerifyFirsLetter from '../utils/VerifyFirstLetter';
 
 export default function SearchHeader() {
-  const { setData, setResultSearch } = useContext(myContext);
+  const { setData, setResultSearch, setControlFilter } = useContext(myContext);
   const location = useLocation();
   const [searchData, setSearchData] = useState({
     searchText: '',
@@ -30,6 +30,7 @@ export default function SearchHeader() {
         'Sinto muito, não encontramos nenhuma receita para esses filtros.',
       );
     }
+    setControlFilter(false);
     setData(result.meals);
     return setDataFetch(result.meals);
   }
@@ -42,6 +43,7 @@ export default function SearchHeader() {
         'Sinto muito, não encontramos nenhuma receita para esses filtros.',
       );
     }
+    setControlFilter(false);
     setData(result.drinks);
     return setDataFetch(result.drinks);
   }

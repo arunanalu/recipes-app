@@ -7,9 +7,22 @@ export default function MyProvider({ children }, usert = '') {
   const [data, setData] = useState([]);
   const [resultSearch, setResultSearch] = useState({});
   const contextValue = { user, setUser };
+  const [filter, setFilter] = useState('');
+  const [controlFilter, setControlFilter] = useState(true);
+  const context = {
+    contextValue,
+    setData,
+    resultSearch,
+    setResultSearch,
+    data,
+    filter,
+    setFilter,
+    controlFilter,
+    setControlFilter,
+  };
   return (
     <myContext.Provider
-      value={ { contextValue, setData, resultSearch, setResultSearch, data } }
+      value={ context }
     >
       {children}
     </myContext.Provider>
