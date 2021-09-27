@@ -11,6 +11,7 @@ export default function PageComidas() {
   const URL_CATEGORY = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
   const URL_FOODSCATEGORY = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=';
   const TYPE = 'meals';
+  const PAGE = 'comidas';
 
   useEffect(() => {
     async function requisition() {
@@ -36,6 +37,7 @@ export default function PageComidas() {
             thumb={ comida.strMealThumb }
             index={ index }
             name={ comida.strMeal }
+            page={ PAGE }
           />);
         }
         return false;

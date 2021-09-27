@@ -11,6 +11,7 @@ export default function PageBebidas() {
   const URL_CATEGORY = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list';
   const URL_DRINKCATEGORY = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=';
   const TYPE = 'drinks';
+  const PAGE = 'bebidas';
 
   useEffect(() => {
     async function requisition() {
@@ -36,6 +37,7 @@ export default function PageBebidas() {
             thumb={ bebida.strDrinkThumb }
             index={ index }
             name={ bebida.strDrink }
+            page={ PAGE }
           />);
         }
         return false;
