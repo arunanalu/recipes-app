@@ -61,7 +61,13 @@ export default function Filter({ urlCategory, type, urlCategoryCard }) {
             {element.strCategory}
           </button>),
       )}
-      <button type="button" onClick={ allFilter }>All</button>
+      <button
+        type="button"
+        data-testid="All-category-filter"
+        onClick={ allFilter }
+      >
+        All
+      </button>
     </div>
   );
 }
