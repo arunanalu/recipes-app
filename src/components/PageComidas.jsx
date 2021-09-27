@@ -38,6 +38,7 @@ export default function PageComidas() {
             index={ index }
             name={ comida.strMeal }
             page={ PAGE }
+            id={ comida.idMeal }
           />);
         }
         return false;

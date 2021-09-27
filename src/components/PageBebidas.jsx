@@ -38,6 +38,7 @@ export default function PageBebidas() {
             index={ index }
             name={ bebida.strDrink }
             page={ PAGE }
+            id={ bebida.idDrink }
           />);
         }
         return false;
