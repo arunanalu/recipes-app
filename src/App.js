@@ -14,7 +14,6 @@ import DetailsPageBebidas from './components/DetailsPageBebidas';
 import FoodsIngredients from './pages/FoodsIngredients';
 import DrinksIngredients from './pages/DrinksIngredients';
 import ExploreIngredientsArea from './pages/ExploreIngredientsArea';
-import DoneRecipes from './pages/DoneRecipes';
 
 function App() {
   return (
@@ -28,7 +27,6 @@ function App() {
       <Route exact path="/bebidas" component={ PageBebidas } />
       <Route exact path="/comidas/:id" component={ DetailsPageComidas } />
       <Route exact path="/bebidas/:id" component={ DetailsPageBebidas } />
-      <Route exact path="/receitas-feitas" component={ DoneRecipes } />
       <Route
         exact
         path="/explorar/comidas/ingredientes"
