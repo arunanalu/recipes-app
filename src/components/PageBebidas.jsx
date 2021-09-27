@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import myContext from '../context/mycontext';
+import Footer from './Footer';
 import Header from './Header';
 import ReceitaCard from './ReceitaCard';
 
@@ -21,6 +22,7 @@ export default function PageBebidas() {
         }
         return false;
       }) }
+      <Footer />
     </div>
   );
 }
