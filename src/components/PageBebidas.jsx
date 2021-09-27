@@ -1,15 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import myContext from '../context/mycontext';
 import Footer from './Footer';
+import { fetchDrinks } from '../Services/fetchApiFoodsandDrinks';
+import Filter from './Filter';
 import Header from './Header';
 import ReceitaCard from './ReceitaCard';
 
 export default function PageBebidas() {
-  const { data } = useContext(myContext);
+  const { data, setData } = useContext(myContext);
   const NUMBER = 12;
+  const URL_CATEGORY = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list';
+  const URL_DRINKCATEGORY = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=';
+  const TYPE = 'drinks';
+  const PAGE = 'bebidas';
+
+  useEffect(() => {
+    async function requisition() {
+      const result = await fetchDrinks('semBusca');
+      setData(result.drinks);
+    }
+    requisition();
+  }, [setData]);
+
   return (
     <div>
       <Header />
+      <Filter
+        urlCategory={ URL_CATEGORY }
+        type={ TYPE }
+        urlCategoryCard={ URL_DRINKCATEGORY }
+      />
       <br />
       { data.map((bebida, index) => {
         if (index < NUMBER) {
@@ -18,6 +38,8 @@ export default function PageBebidas() {
             thumb={ bebida.strDrinkThumb }
             index={ index }
             name={ bebida.strDrink }
+            page={ PAGE }
+            id={ bebida.idDrink }
           />);
         }
         return false;
