@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useHistory } from 'react-router';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 
 export default function Profile() {
@@ -9,7 +10,7 @@ export default function Profile() {
   return (
     <div>
       <Header />
-      <p data-testid="profile-email">{emailStorage.email}</p>
+      <p data-testid="profile-email">{emailStorage && emailStorage.email}</p>
       <button
         onClick={ () => history.push('/receitas-feitas') }
         type="button"
@@ -34,6 +35,7 @@ export default function Profile() {
       >
         Sair
       </button>
+      <Footer />
     </div>
   );
 }

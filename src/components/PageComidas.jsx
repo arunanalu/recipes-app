@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import myContext from '../context/mycontext';
+import Footer from './Footer';
 import fetchFoods from '../Services/fetchApiFoodsandDrinks';
 import Filter from './Filter';
 import Header from './Header';
@@ -43,6 +44,7 @@ export default function PageComidas() {
         }
         return false;
       }) }
+      <Footer />
     </div>
   );
 }
