@@ -35,6 +35,19 @@ export default function Filter({ urlCategory, type, urlCategoryCard }) {
     }
   };
 
+  const allFilter = async () => {
+    if (type === 'meals') {
+      let res = await fetchFoods('semBusca');
+      res = res[type];
+      setData(res);
+    } else {
+      let res = await fetchDrinks('semBusca');
+      res = res[type];
+      setData(res);
+    }
+    setBtn('');
+  };
+
   return (
     <div>
       {result.map(
@@ -48,6 +61,7 @@ export default function Filter({ urlCategory, type, urlCategoryCard }) {
             {element.strCategory}
           </button>),
       )}
+      <button type="button" onClick={ allFilter }>All</button>
     </div>
   );
 }
