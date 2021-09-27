@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 
-// teste
-
 export default function useCategoryApi(url) {
   const [category, setCategory] = useState([]);
   const [loading, setLoading] = useState(false);
