@@ -4,6 +4,7 @@ import myContext from '../context/mycontext';
 import { fetchDrinks } from '../Services/fetchApiFoodsandDrinks';
 import Filter from './Filter';
 import Header from './Header';
+import Footer from './Footer';
 import ReceitaCard from './ReceitaCard';
 
 export default function PageBebidas() {
@@ -53,6 +54,7 @@ export default function PageBebidas() {
         }
         return false;
       }) }
+      <Footer />
     </div>
   );
 }
