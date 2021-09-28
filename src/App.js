@@ -13,7 +13,7 @@ import DetailsPageComidas from './components/DetailsPageComidas';
 import DetailsPageBebidas from './components/DetailsPageBebidas';
 import FoodsIngredients from './pages/FoodsIngredients';
 import DrinksIngredients from './pages/DrinksIngredients';
-import ExploreIngredientsArea from './pages/ExploreIngredientsArea';
+import ExploreArea from './pages/ExploreArea';
 
 function App() {
   return (
@@ -35,7 +35,7 @@ function App() {
       <Route
         exact
         path="/explorar/comidas/area"
-        component={ ExploreIngredientsArea }
+        component={ ExploreArea }
       />
       <Route
         exact
