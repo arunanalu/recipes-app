@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
 import IngredientsCard from '../components/IngredientsCard';
 import { fetchIngredients } from '../Services/fetchApiFoodsandDrinks';
 
@@ -13,6 +14,7 @@ export default function FoodsIngredients() {
 
   return (
     <div>
+      <Header />
       {ingredients.map((ingredient, index) => (
         <IngredientsCard
           key={ index }

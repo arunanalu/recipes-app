@@ -1,10 +1,13 @@
 import React from 'react';
 import { useHistory } from 'react-router';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 export default function ExploreFood() {
   const history = useHistory();
   return (
     <>
+      <Header />
       <button
         onClick={ () => history.push('/explorar/comidas/ingredientes') }
         data-testid="explore-by-ingredient"
@@ -26,6 +29,7 @@ export default function ExploreFood() {
       >
         Me Surpreenda!
       </button>
+      <Footer />
     </>
   );
 }

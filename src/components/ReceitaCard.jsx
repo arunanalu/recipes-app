@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 export default function ReceitaCard({ thumb, index, name }) {
   return (
-    <div data-testid={ `${index}-recipe-card` }>
+    <div
+      data-testid={ `${index}-recipe-card` }
+    >
       <img
         data-testid={ `${index}-card-img` }
         width={ 50 }
