@@ -33,28 +33,6 @@ export default function DetailsPageComidas() {
     fetchApi();
   }, [pathname, pathID]);
 
-  // function startRecipe() {
-  //   const verifyRecipe = recipesInProgress.some((idRecipe) => idRecipe === pathID);
-  //   if (verifyRecipe) return;
-  //   setRecipeInProgress([...recipesInProgress, pathID]);
-  //   const recipesLocalStorage = JSON.parse(localStorage.getItem('inProgressRecipes'));
-  //   const recipeInProgress = {
-  //     ...recipesLocalStorage,
-  //     meals: {
-  //       ...recipesLocalStorage.meals,
-  //       [pathID]: [],
-  //     },
-  //   };
-  //   localStorage.setItem('inProgressRecipes', JSON.stringify(recipeInProgress));
-  //   history.push(`${pathID}/in-progress`);
-  // }
-
-  // function copyToClipboard() {
-  //   const linkShare = `http://localhost:3000${pathname}`;
-  //   navigator.clipboard.writeText(linkShare);
-  //   notify();
-  // }
-
   return (
     <div>
       { revenue && <ShowRecipeFood
