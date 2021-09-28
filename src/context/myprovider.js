@@ -6,6 +6,8 @@ export default function MyProvider({ children }, usert = '') {
   const [user, setUser] = useState(usert);
   const [data, setData] = useState([]);
   const [resultSearch, setResultSearch] = useState({});
+  const [startRecipe, setStartRecipe] = useState(false);
+  const [recipesInProgress, setRecipeInProgress] = useState([]);
   const contextValue = { user, setUser };
   const context = {
     contextValue,
@@ -13,6 +15,10 @@ export default function MyProvider({ children }, usert = '') {
     resultSearch,
     setResultSearch,
     data,
+    startRecipe,
+    setStartRecipe,
+    recipesInProgress,
+    setRecipeInProgress,
   };
   return (
     <myContext.Provider

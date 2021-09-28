@@ -12,17 +12,18 @@ export default function Header() {
   function setHeaderName() {
     const path = location.pathname.split('/');
     let headerName = '';
+    const capitalize = (letter) => (letter[0].toUpperCase() + letter.substr(1));
     path.forEach((name) => {
       if (name === 'ingredientes') headerName = 'Explorar Ingredientes';
       if (name === 'area') headerName = 'Explorar Origem';
     });
     if (!headerName) {
       const [, first, second] = path;
-      let firstName = first[0].toUpperCase() + first.substr(1);
-      const secondName = second && second[0].toUpperCase() + second.substr(1);
+      let firstName = capitalize(first);
+      const secondName = second && capitalize(second);
       if (firstName.includes('-')) {
         const splitName = firstName.split('-');
-        splitName[1] = splitName[1][0].toUpperCase() + splitName[1].substr(1);
+        splitName[1] = capitalize(splitName[1]);
         firstName = splitName.join(' ');
       }
 
@@ -46,10 +47,14 @@ export default function Header() {
           && (
             <button
               type="button"
-              onClick={ () => setDisplay(!display) }
             >
-
-              <img data-testid="search-top-btn" src={ searchIcon } alt="icone-perfil" />
+              <input
+                tipe="image"
+                onClick={ () => setDisplay(!display) }
+                data-testid="search-top-btn"
+                src={ searchIcon }
+                alt="icone-perfil"
+              />
               { display && <SearchHeader /> }
             </button>
           )}

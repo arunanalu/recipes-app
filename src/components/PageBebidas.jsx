@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import myContext from '../context/mycontext';
-import Footer from './Footer';
 import { fetchDrinks } from '../Services/fetchApiFoodsandDrinks';
 import Filter from './Filter';
 import Header from './Header';
@@ -33,18 +33,26 @@ export default function PageBebidas() {
       <br />
       { data.map((bebida, index) => {
         if (index < NUMBER) {
-          return (<ReceitaCard
-            key={ bebida.idDrink }
-            thumb={ bebida.strDrinkThumb }
-            index={ index }
-            name={ bebida.strDrink }
-            page={ PAGE }
-            id={ bebida.idDrink }
-          />);
+          return (
+            <Link
+              to={ {
+                pathname: `/bebidas/${bebida.idDrink}`,
+                state: { name: bebida.strDrink },
+              } }
+            >
+              <ReceitaCard
+                key={ bebida.idDrink }
+                thumb={ bebida.strDrinkThumb }
+                index={ index }
+                name={ bebida.strDrink }
+                page={ PAGE }
+                id={ bebida.idDrink }
+              />
+            </Link>
+          );
         }
         return false;
       }) }
-      <Footer />
     </div>
   );
 }
