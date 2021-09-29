@@ -49,7 +49,7 @@ export default function Header() {
               type="button"
             >
               <input
-                tipe="image"
+                type="image"
                 onClick={ () => setDisplay(!display) }
                 data-testid="search-top-btn"
                 src={ searchIcon }
