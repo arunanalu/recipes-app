@@ -12,7 +12,26 @@ code {
     monospace;
 }
 
+.separator {
+  height: 10px;
+  width: auto;
+  margin-top: 60px;
+}
+
 footer {
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 54px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.37);
+}
+
+.footer-flex {
+  margin-top: 10px;
+  height: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: white;
 }
