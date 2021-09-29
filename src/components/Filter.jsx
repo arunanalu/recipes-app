@@ -1,13 +1,15 @@
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useLocation } from 'react-router';
 import useCategoryApi from '../hooks/useCategoryApi';
 import myContext from '../context/mycontext';
 import fetchFoods, { fetchDrinks } from '../Services/fetchApiFoodsandDrinks';
 
 export default function Filter({ urlCategory, type, urlCategoryCard }) {
+  const location = useLocation();
   const [category, loading] = useCategoryApi(urlCategory);
   const [btn, setBtn] = useState('');
-  const { setData } = useContext(myContext);
+  const { setMeals, setDrinks } = useContext(myContext);
   const QUATRO = 4;
   let result = [];
   if (loading === true) result = category[type];
@@ -19,19 +21,19 @@ export default function Filter({ urlCategory, type, urlCategoryCard }) {
       if (type === 'meals') {
         let res = await fetchFoods('semBusca');
         res = res[type];
-        setData(res);
+        setMeals(res);
       } else {
         let res = await fetchDrinks('semBusca');
         res = res[type];
-        setData(res);
+        setDrinks(res);
       }
     } else {
       event.persist();
       let response = await fetch(`${urlCategoryCard}${categoria}`);
       response = await response.json();
       response = response[type];
-      setData(response);
       setBtn(event.target);
+      return location.pathname === '/bebidas' ? setDrinks(response) : setMeals(response);
     }
   };
 
@@ -39,11 +41,11 @@ export default function Filter({ urlCategory, type, urlCategoryCard }) {
     if (type === 'meals') {
       let res = await fetchFoods('semBusca');
       res = res[type];
-      setData(res);
+      setMeals(res);
     } else {
       let res = await fetchDrinks('semBusca');
       res = res[type];
-      setData(res);
+      setDrinks(res);
     }
     setBtn('');
   };

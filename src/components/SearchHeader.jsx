@@ -6,7 +6,7 @@ import RedirectDetailsPage from '../utils/RedirectDetailsPage';
 import VerifyFirsLetter from '../utils/VerifyFirstLetter';
 
 export default function SearchHeader() {
-  const { setData, setResultSearch } = useContext(myContext);
+  const { setMeals, setDrinks, setResultSearch } = useContext(myContext);
   const location = useLocation();
   const [searchData, setSearchData] = useState({
     searchText: '',
@@ -25,25 +25,27 @@ export default function SearchHeader() {
   async function searchSubmitFood() {
     VerifyFirsLetter(searchData);
     const result = await fetchFoods(searchData.searchRadio, searchData.searchText);
-    if (result.meals === 0 || result.meals === null) {
+    const { meals } = result;
+    if (!meals) {
       return global.alert(
         'Sinto muito, não encontramos nenhuma receita para esses filtros.',
       );
     }
-    setData(result.meals);
-    return setDataFetch(result.meals);
+    setMeals(meals);
+    return setDataFetch(meals);
   }
 
   async function searchSubmitDrink() {
     VerifyFirsLetter(searchData);
     const result = await fetchDrinks(searchData.searchRadio, searchData.searchText);
-    if (result.drinks === 0 || result.drinks === null) {
+    const { drinks } = result;
+    if (!drinks) {
       return global.alert(
         'Sinto muito, não encontramos nenhuma receita para esses filtros.',
       );
     }
-    setData(result.drinks);
-    return setDataFetch(result.drinks);
+    setDrinks(drinks);
+    return setDataFetch(drinks);
   }
 
   const boolean = true;
