@@ -1,25 +1,37 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import fetchFoods, { fetchDrinks } from '../Services/fetchApiFoodsandDrinks';
 import myContext from './mycontext';
 
 export default function MyProvider({ children }, usert = '') {
   const [user, setUser] = useState(usert);
-  const [data, setData] = useState([]);
+  const [meals, setMeals] = useState([]);
+  const [drinks, setDrinks] = useState([]);
   const [resultSearch, setResultSearch] = useState({});
   const [startRecipe, setStartRecipe] = useState(false);
   const [recipesInProgress, setRecipeInProgress] = useState([]);
   const contextValue = { user, setUser };
   const context = {
+    drinks,
+    setDrinks,
     contextValue,
-    setData,
+    setMeals,
     resultSearch,
     setResultSearch,
-    data,
+    meals,
     startRecipe,
     setStartRecipe,
     recipesInProgress,
     setRecipeInProgress,
   };
+
+  useEffect(() => {
+    fetchFoods('semBusca')
+      .then((res) => setMeals(res.meals));
+    fetchDrinks('semBusca')
+      .then((res) => setDrinks(res.drinks));
+  }, []);
+
   return (
     <myContext.Provider
       value={ context }

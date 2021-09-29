@@ -1,27 +1,18 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import myContext from '../context/mycontext';
-import { fetchDrinks } from '../Services/fetchApiFoodsandDrinks';
 import Filter from './Filter';
 import Header from './Header';
 import Footer from './Footer';
 import ReceitaCard from './ReceitaCard';
 
 export default function PageBebidas() {
-  const { data, setData } = useContext(myContext);
+  const { drinks } = useContext(myContext);
   const NUMBER = 12;
   const URL_CATEGORY = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list';
   const URL_DRINKCATEGORY = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=';
   const TYPE = 'drinks';
   const PAGE = 'bebidas';
-
-  useEffect(() => {
-    async function requisition() {
-      const result = await fetchDrinks('semBusca');
-      setData(result.drinks);
-    }
-    requisition();
-  }, [setData]);
 
   return (
     <div>
@@ -32,7 +23,7 @@ export default function PageBebidas() {
         urlCategoryCard={ URL_DRINKCATEGORY }
       />
       <br />
-      { data.map((bebida, index) => {
+      { drinks.map((bebida, index) => {
         if (index < NUMBER) {
           return (
             <Link
