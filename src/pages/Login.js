@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
+import '../css/login.css';
 
 export default function Login() {
   const history = useHistory();
@@ -37,7 +38,7 @@ export default function Login() {
   }
 
   return (
-    <form>
+    <form className="login">
       <label htmlFor="email-input">
         Email
         <input
@@ -63,6 +64,7 @@ export default function Login() {
         disabled={ btnDisabled }
         type="button"
         data-testid="login-submit-btn"
+        className="btn btn-primary"
       >
         {' '}
         Entrar
