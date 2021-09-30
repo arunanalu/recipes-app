@@ -4,10 +4,11 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import ReceitaCard from '../components/ReceitaCard';
 import useAreasApi from '../hooks/useAreaApi';
+import fetchFoods from '../Services/fetchApiFoodsandDrinks';
 import fetchAreaFoods from '../Services/fetchArea';
 
 export default function ExploreIngredientsArea() {
-  const [area, setArea] = useState('American');
+  const [area, setArea] = useState('all');
   const [result, setResult] = useState([]);
   const [areas] = useAreasApi();
   let temp = [];
@@ -16,8 +17,13 @@ export default function ExploreIngredientsArea() {
 
   useEffect(() => {
     async function requisition() {
-      const res = await fetchAreaFoods(area);
-      setResult(res);
+      if (area === 'all') {
+        const res = await fetchFoods('semBusca');
+        setResult(res);
+      } else {
+        const res = await fetchAreaFoods(area);
+        setResult(res);
+      }
     }
     requisition();
   }, [area]);
@@ -36,6 +42,7 @@ export default function ExploreIngredientsArea() {
             {strArea}
           </option>
         ))}
+        <option value="all" data-testid="All-option">All</option>
       </select>
       { temp.map((comida, index) => {
         if (index < NUMBER) {
