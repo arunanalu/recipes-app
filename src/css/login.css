@@ -8,22 +8,26 @@
   height: 100vh;
   justify-content: center;
   width: 100vw;
+
   /* border: 4px solid black; */
 }
 
 .conteiner3 {
+
   /* background-color: rgb(255, 253, 230); */
   background-image: url('/img/table2.png');
   background-position: center;
   background-size: cover;
+
   /* border: 4px solid black; */
-  position: absolute;
-  z-index: 0;
-  width: 300px;
   height: 550px;
-  /* border: 5px solid black; */
   pointer-events: none;
+  position: absolute;
   transform: rotate(180deg);
+  width: 300px;
+  z-index: 0;
+
+  /* border: 5px solid black; */
 }
 
 /* .conteiner2 input, button {
@@ -32,10 +36,11 @@
 } */
 
 .conteiner2 {
+  margin-bottom: 160px;
   position: relative;
   z-index: 1;
+
   /* border: 4px solid black; */
-  margin-bottom: 160px;
 }
 
 .form-control {
@@ -44,10 +49,10 @@
 }
 
 .btn {
-  margin: 6px;
-  width: 200px;
   background-color: black;
   color: white;
+  margin: 6px;
+  width: 200px;
 }
 
 .title {
