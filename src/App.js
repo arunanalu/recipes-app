@@ -16,6 +16,8 @@ import DrinksIngredients from './pages/DrinksIngredients';
 import DoneRecipes from './pages/DoneRecipes';
 import FavoriteRecipes from './pages/FavoriteRecipes';
 import ExploreArea from './pages/ExploreArea';
+import DrinkRecipeInProgress from './components/DrinkRecipeInProgress';
+import FoodRecipeInProgress from './components/FoodRecipeInProgress';
 
 function App() {
   return (
@@ -31,6 +33,16 @@ function App() {
       <Route exact path="/bebidas/:id" component={ DetailsPageBebidas } />
       <Route exact path="/receitas-feitas" component={ DoneRecipes } />
       <Route exact path="/receitas-favoritas" component={ FavoriteRecipes } />
+      <Route
+        exact
+        path="/bebidas/:id/in-progress"
+        component={ DrinkRecipeInProgress }
+      />
+      <Route
+        exact
+        path="/comidas/:id/in-progress"
+        component={ FoodRecipeInProgress }
+      />
       <Route
         exact
         path="/explorar/comidas/ingredientes"
