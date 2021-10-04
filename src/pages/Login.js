@@ -39,6 +39,7 @@ export default function Login() {
 
   return (
     <form className="conteiner">
+      <div className="conteiner3" />
       <div className="conteiner2">
         <h2 className="title">App De Receitas</h2>
         <input
@@ -60,7 +61,7 @@ export default function Login() {
         />
 
         <button
-          className="btn btn-info btn-block"
+          className="btn btn-block"
           onClick={ handleClick }
           disabled={ btnDisabled }
           type="button"

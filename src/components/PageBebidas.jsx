@@ -5,6 +5,7 @@ import Filter from './Filter';
 import Header from './Header';
 import Footer from './Footer';
 import ReceitaCard from './ReceitaCard';
+import '../css/telaPrincipal.css';
 
 export default function PageBebidas() {
   const { drinks } = useContext(myContext);
