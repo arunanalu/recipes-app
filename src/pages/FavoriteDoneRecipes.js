@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import FavoriteCard from '../components/FavoriteCard';
+import PropTypes from 'prop-types';
+import FavoriteCard from '../components/FavoriteDoneCard';
 import Header from '../components/Header';
 
-export default function FavoriteRecipes() {
+export default function FavoriteDoneRecipes({ location: { pathname } }) {
   const [recipes, setRecipes] = useState();
+  const [LocalRecipes, setLocalRecipes] = useState();
 
   useEffect(() => {
-    const localStorageRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
+    const localStorageRecipes = pathname === '/receitas-favoritas'
+      ? JSON.parse(localStorage.getItem('favoriteRecipes'))
+      : JSON.parse(localStorage.getItem('doneRecipes'));
+    setLocalRecipes(localStorageRecipes);
     setRecipes(localStorageRecipes);
-  }, []);
+  }, [pathname]);
 
   function handleClick(name) {
-    const localStorageRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
     if (name) {
-      const foods = localStorageRecipes.filter((comida) => comida.type === name);
-      console.log(foods);
+      const foods = LocalRecipes.filter((comida) => comida.type === name);
       setRecipes(foods);
-    } else { setRecipes(localStorageRecipes); }
+    } else { setRecipes(LocalRecipes); }
   }
 
   return (
@@ -57,3 +60,9 @@ export default function FavoriteRecipes() {
     </div>
   );
 }
+
+FavoriteDoneRecipes.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
+};

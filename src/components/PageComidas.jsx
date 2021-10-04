@@ -1,27 +1,18 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import myContext from '../context/mycontext';
-import fetchFoods from '../Services/fetchApiFoodsandDrinks';
 import Filter from './Filter';
 import Header from './Header';
 import Footer from './Footer';
 import ReceitaCard from './ReceitaCard';
 
 export default function PageComidas() {
-  const { data, setData } = useContext(myContext);
+  const { meals } = useContext(myContext);
   const NUMBER = 12;
   const URL_CATEGORY = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
   const URL_FOODSCATEGORY = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=';
   const TYPE = 'meals';
   const PAGE = 'comidas';
-
-  useEffect(() => {
-    async function requisition() {
-      const result = await fetchFoods('semBusca');
-      setData(result.meals);
-    }
-    requisition();
-  }, [setData]);
 
   return (
     <div>
@@ -32,7 +23,7 @@ export default function PageComidas() {
         urlCategoryCard={ URL_FOODSCATEGORY }
       />
       <br />
-      { data.map((comida, index) => {
+      { meals.map((comida, index) => {
         if (index < NUMBER) {
           return (
             <Link
@@ -40,9 +31,9 @@ export default function PageComidas() {
                 pathname: `/comidas/${comida.idMeal}`,
                 state: { name: comida.strMeal },
               } }
+              key={ comida.idMeal }
             >
               <ReceitaCard
-                key={ comida.idMeal }
                 thumb={ comida.strMealThumb }
                 index={ index }
                 name={ comida.strMeal }
@@ -54,6 +45,7 @@ export default function PageComidas() {
         }
         return false;
       }) }
+      <div className="separator" />
       <Footer />
     </div>
   );

@@ -13,9 +13,10 @@ import DetailsPageComidas from './components/DetailsPageComidas';
 import DetailsPageBebidas from './components/DetailsPageBebidas';
 import FoodsIngredients from './pages/FoodsIngredients';
 import DrinksIngredients from './pages/DrinksIngredients';
-import DoneRecipes from './pages/DoneRecipes';
-import FavoriteRecipes from './pages/FavoriteRecipes';
 import ExploreArea from './pages/ExploreArea';
+import FavoriteDoneRecipes from './pages/FavoriteDoneRecipes';
+
+const noMatch = () => <h1>Not Found</h1>;
 
 function App() {
   return (
@@ -29,8 +30,8 @@ function App() {
       <Route exact path="/bebidas" component={ PageBebidas } />
       <Route exact path="/comidas/:id" component={ DetailsPageComidas } />
       <Route exact path="/bebidas/:id" component={ DetailsPageBebidas } />
-      <Route exact path="/receitas-feitas" component={ DoneRecipes } />
-      <Route exact path="/receitas-favoritas" component={ FavoriteRecipes } />
+      <Route exact path="/receitas-favoritas" component={ FavoriteDoneRecipes } />
+      <Route exact path="/receitas-feitas" component={ FavoriteDoneRecipes } />
       <Route
         exact
         path="/explorar/comidas/ingredientes"
@@ -46,6 +47,7 @@ function App() {
         path="/explorar/bebidas/ingredientes"
         component={ DrinksIngredients }
       />
+      <Route component={ noMatch } />
     </Switch>
   );
 }
