@@ -1,6 +1,6 @@
 export const getFavoriteRecipeFood = (pathId) => {
   const getLocalStorage = JSON.parse(localStorage.getItem('favoriteRecipes'));
-  return getLocalStorage.some(({ id }) => id === pathId);
+  if (getLocalStorage) return getLocalStorage.some(({ id }) => id === pathId);
 };
 
 export default function favoriteRecipeFood(recipe, pathId) {

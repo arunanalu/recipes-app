@@ -13,6 +13,11 @@ function ShowRecipeDrinks({ revenue, favorite, setFavorite, pathID,
 
   const history = useHistory();
 
+  const ingredientsRecipe = arr[0] !== undefined && Object.entries(arr[0])
+    .filter((value) => value[0].includes('strIngredient'))
+    .filter((ingredient) => ingredient[1] !== '' && ingredient[1] !== null)
+    .map((value) => value[1]);
+
   function startRecipe() {
     const verifyRecipe = recipesInProgress.some((idRecipe) => idRecipe === pathID);
     if (verifyRecipe) return;
@@ -22,11 +27,14 @@ function ShowRecipeDrinks({ revenue, favorite, setFavorite, pathID,
       ...recipesLocalStorage,
       cocktails: {
         ...recipesLocalStorage.cocktails,
-        [pathID]: [],
+        [pathID]: ingredientsRecipe,
       },
     };
     localStorage.setItem('inProgressRecipes', JSON.stringify(recipeInProgress));
-    history.push(`${pathID}/in-progress`);
+    history.push({
+      pathname: `${pathID}/in-progress`,
+      state: { recipe: revenue, ingredients: ingredientsRecipe, pathID },
+    });
   }
 
   function copyToClipboard() {
