@@ -5,9 +5,11 @@ import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
 import SearchHeader from './SearchHeader';
 import '../css/header.css';
+import Separator from './Separator';
 
 export default function Header() {
   const [display, setDisplay] = useState(false);
+  const [separator, setSeparator] = useState(false);
   const location = useLocation();
 
   function setHeaderName() {
@@ -53,18 +55,24 @@ export default function Header() {
                 >
                   <input
                     type="image"
-                    onClick={ () => setDisplay(!display) }
+                    onClick={ () => {
+                      setDisplay(!display);
+                      setSeparator(!separator);
+                    } }
                     data-testid="search-top-btn"
                     src={ searchIcon }
                     alt="icone-perfil"
                   />
-                  { display && <SearchHeader /> }
+                  {/* { display && <SearchHeader /> } */}
                 </button>
               )}
           </div>
         </div>
+        <div>
+          { display && <SearchHeader /> }
+        </div>
       </header>
-      <div className="separator-2" />
+      <Separator separator={ separator } />
     </>
   );
 }
