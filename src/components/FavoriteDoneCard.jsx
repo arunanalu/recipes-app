@@ -7,7 +7,16 @@ import shareIcon from '../images/shareIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 
 function FavoriteCard({ recipe, index }) {
-  const { image, id, name, alcoholicOrNot, area, category, type } = recipe;
+  const {
+    image,
+    id,
+    name,
+    alcoholicOrNot,
+    area,
+    category,
+    type,
+    doneDate,
+    tags } = recipe;
   const history = useHistory();
 
   function copyToClipboard() {
@@ -21,7 +30,6 @@ function FavoriteCard({ recipe, index }) {
     const recipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
     const filteredRecipes = recipes.filter((item) => item.id !== recipeId);
     localStorage.setItem('favoriteRecipes', JSON.stringify(filteredRecipes));
-    console.log(filteredRecipes);
     window.location.reload(false);
   }
 
@@ -41,6 +49,17 @@ function FavoriteCard({ recipe, index }) {
       <Link to={ `/${type}s/${id}` }>
         <p data-testid={ `${index}-horizontal-name` }>{ name }</p>
       </Link>
+      {history.location.pathname === '/receitas-feitas'
+      && (
+        <>
+          {tags.length && tags.map((tag) => (
+            <span key={ tag } data-testid={ `${index}-${tag}-horizontal-tag` }>
+              {tag}
+            </span>))}
+          <br />
+          <p data-testid={ `${index}-horizontal-done-date` }>{`Feita em ${doneDate}`}</p>
+        </>
+      )}
       <input
         alt="Ícone de compartilhamento"
         data-testid={ `${index}-horizontal-share-btn` }
@@ -49,16 +68,18 @@ function FavoriteCard({ recipe, index }) {
         onClick={ copyToClipboard }
       />
       <ToastContainer />
-      <button
-        type="button"
-        onClick={ () => handleClick(id) }
-      >
-        <img
-          src={ blackHeartIcon }
-          alt="favorite"
-          data-testid={ `${index}-horizontal-favorite-btn` }
-        />
-      </button>
+      { history.location.pathname === '/receitas-favoritas'
+      && (
+        <button
+          type="button"
+          onClick={ () => handleClick(id) }
+        >
+          <img
+            src={ blackHeartIcon }
+            alt="favorite"
+            data-testid={ `${index}-horizontal-favorite-btn` }
+          />
+        </button>)}
     </div>
   );
 }
