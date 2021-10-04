@@ -4,6 +4,7 @@ import { useLocation } from 'react-router';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
 import SearchHeader from './SearchHeader';
+import '../css/header.css';
 
 export default function Header() {
   const [display, setDisplay] = useState(false);
@@ -33,32 +34,37 @@ export default function Header() {
   }
 
   return (
-    <header>
-      <h1 data-testid="page-title">
-        { setHeaderName() }
-      </h1>
-      <Link to="/perfil">
-        <img data-testid="profile-top-btn" src={ profileIcon } alt="icone-perfil" />
-      </Link>
-      <div>
-        {(location.pathname === '/comidas'
-        || location.pathname === '/bebidas'
-        || location.pathname === '/explorar/comidas/area')
-          && (
-            <button
-              type="button"
-            >
-              <input
-                type="image"
-                onClick={ () => setDisplay(!display) }
-                data-testid="search-top-btn"
-                src={ searchIcon }
-                alt="icone-perfil"
-              />
-              { display && <SearchHeader /> }
-            </button>
-          )}
-      </div>
-    </header>
+    <>
+      <header>
+        <div className="header">
+          <Link to="/perfil">
+            <img data-testid="profile-top-btn" src={ profileIcon } alt="icone-perfil" />
+          </Link>
+          <h1 data-testid="page-title">
+            { setHeaderName() }
+          </h1>
+          <div>
+            {(location.pathname === '/comidas'
+            || location.pathname === '/bebidas'
+            || location.pathname === '/explorar/comidas/area')
+              && (
+                <button
+                  type="button"
+                >
+                  <input
+                    type="image"
+                    onClick={ () => setDisplay(!display) }
+                    data-testid="search-top-btn"
+                    src={ searchIcon }
+                    alt="icone-perfil"
+                  />
+                  { display && <SearchHeader /> }
+                </button>
+              )}
+          </div>
+        </div>
+      </header>
+      <div className="separator-2" />
+    </>
   );
 }
