@@ -1,0 +1,19 @@
+.conteiner {
+  align-items: center;
+  background-image: url('https://a-static.mlcdn.com.br/618x463/papel-de-parede-adesivo-verde-claro-para-copa-cozinha-lanchonete-comida-pizza-refrigerante-10-mts-toque-pop/toquepop/ppc049-10/06fd083868b386eafafb4650525ab190.jpg');
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+.form-control {
+  margin: 6px;
+  width: 200px;
+}
+
+.btn {
+  margin: 6px;
+  width: 200px;
+}

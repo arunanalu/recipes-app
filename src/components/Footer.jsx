@@ -9,27 +9,29 @@ export default function Footer() {
 
   return (
     <footer data-testid="footer">
-      <input
-        type="image"
-        onClick={ () => history.push('/bebidas') }
-        data-testid="drinks-bottom-btn"
-        src={ drinkIcon }
-        alt="Ícone de drinks"
-      />
-      <input
-        type="image"
-        onClick={ () => history.push('/explorar') }
-        data-testid="explore-bottom-btn"
-        src={ exploreIcon }
-        alt="Ícone de bússola"
-      />
-      <input
-        type="image"
-        onClick={ () => history.push('/comidas') }
-        data-testid="food-bottom-btn"
-        src={ mealIcon }
-        alt="Ícone de comida"
-      />
+      <div className="footer-flex">
+        <input
+          type="image"
+          onClick={ () => history.push('/bebidas') }
+          data-testid="drinks-bottom-btn"
+          src={ drinkIcon }
+          alt="Ícone de drinks"
+        />
+        <input
+          type="image"
+          onClick={ () => history.push('/explorar') }
+          data-testid="explore-bottom-btn"
+          src={ exploreIcon }
+          alt="Ícone de bússola"
+        />
+        <input
+          type="image"
+          onClick={ () => history.push('/comidas') }
+          data-testid="food-bottom-btn"
+          src={ mealIcon }
+          alt="Ícone de comida"
+        />
+      </div>
     </footer>
   );
 }

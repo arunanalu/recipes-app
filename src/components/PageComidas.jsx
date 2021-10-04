@@ -31,9 +31,9 @@ export default function PageComidas() {
                 pathname: `/comidas/${comida.idMeal}`,
                 state: { name: comida.strMeal },
               } }
+              key={ comida.idMeal }
             >
               <ReceitaCard
-                key={ comida.idMeal }
                 thumb={ comida.strMealThumb }
                 index={ index }
                 name={ comida.strMeal }
@@ -45,6 +45,7 @@ export default function PageComidas() {
         }
         return false;
       }) }
+      <div className="separator" />
       <Footer />
     </div>
   );
