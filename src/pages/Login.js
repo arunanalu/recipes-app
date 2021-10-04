@@ -39,34 +39,37 @@ export default function Login() {
 
   return (
     <form className="conteiner">
-      <input
-        className="form-control"
-        onChange={ handleChange }
-        type="email"
-        placeholder="Email"
-        name="email"
-        data-testid="email-input"
-      />
+      <div className="conteiner2">
+        <h2 className="title">App De Receitas</h2>
+        <input
+          className="form-control"
+          onChange={ handleChange }
+          type="email"
+          placeholder="Email"
+          name="email"
+          data-testid="email-input"
+        />
 
-      <input
-        className="form-control"
-        type="password"
-        placeholder="Senha"
-        name="password"
-        onChange={ handleChange }
-        data-testid="password-input"
-      />
+        <input
+          className="form-control"
+          type="password"
+          placeholder="Senha"
+          name="password"
+          onChange={ handleChange }
+          data-testid="password-input"
+        />
 
-      <button
-        className="btn btn-info btn-block"
-        onClick={ handleClick }
-        disabled={ btnDisabled }
-        type="button"
-        data-testid="login-submit-btn"
-      >
-        {' '}
-        Entrar
-      </button>
+        <button
+          className="btn btn-info btn-block"
+          onClick={ handleClick }
+          disabled={ btnDisabled }
+          type="button"
+          data-testid="login-submit-btn"
+        >
+          {' '}
+          Entrar
+        </button>
+      </div>
     </form>
   );
 }
