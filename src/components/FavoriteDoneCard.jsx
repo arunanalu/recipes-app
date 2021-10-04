@@ -52,9 +52,9 @@ function FavoriteCard({ recipe, index }) {
       {history.location.pathname === '/receitas-feitas'
       && (
         <>
-          {tags.length && tags.map((tag) => (
+          {tags.length > 0 && tags.map((tag) => (
             <span key={ tag } data-testid={ `${index}-${tag}-horizontal-tag` }>
-              {tag}
+              {`${tag} `}
             </span>))}
           <br />
           <p data-testid={ `${index}-horizontal-done-date` }>{`Feita em ${doneDate}`}</p>
