@@ -17,8 +17,8 @@ import ExploreArea from './pages/ExploreArea';
 import DrinkRecipeInProgress from './components/DrinkRecipeInProgress';
 import FoodRecipeInProgress from './components/FoodRecipeInProgress';
 import FavoriteDoneRecipes from './pages/FavoriteDoneRecipes';
-const noMatch = () => <h1>Not Found</h1>;
 
+const noMatch = () => <h1>Not Found</h1>;
 
 function App() {
   return (
