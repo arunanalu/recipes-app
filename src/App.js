@@ -16,6 +16,8 @@ import DrinksIngredients from './pages/DrinksIngredients';
 import ExploreArea from './pages/ExploreArea';
 import FavoriteDoneRecipes from './pages/FavoriteDoneRecipes';
 
+const noMatch = () => <h1>Not Found</h1>;
+
 function App() {
   return (
     <Switch>
@@ -45,6 +47,7 @@ function App() {
         path="/explorar/bebidas/ingredientes"
         component={ DrinksIngredients }
       />
+      <Route component={ noMatch } />
     </Switch>
   );
 }

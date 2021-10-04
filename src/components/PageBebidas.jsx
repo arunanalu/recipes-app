@@ -31,9 +31,9 @@ export default function PageBebidas() {
                 pathname: `/bebidas/${bebida.idDrink}`,
                 state: { name: bebida.strDrink },
               } }
+              key={ bebida.idDrink }
             >
               <ReceitaCard
-                key={ bebida.idDrink }
                 thumb={ bebida.strDrinkThumb }
                 index={ index }
                 name={ bebida.strDrink }
@@ -45,6 +45,7 @@ export default function PageBebidas() {
         }
         return false;
       }) }
+      <div className="separator" />
       <Footer />
     </div>
   );
