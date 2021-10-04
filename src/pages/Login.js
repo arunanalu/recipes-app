@@ -38,33 +38,31 @@ export default function Login() {
   }
 
   return (
-    <form className="login">
-      <label htmlFor="email-input">
-        Email
-        <input
-          onChange={ handleChange }
-          type="email"
-          placeholder="Email"
-          name="email"
-          data-testid="email-input"
-        />
-      </label>
-      <label htmlFor="password-input">
-        Senha
-        <input
-          type="password"
-          placeholder="Senha"
-          name="password"
-          onChange={ handleChange }
-          data-testid="password-input"
-        />
-      </label>
+    <form className="conteiner">
+      <input
+        className="form-control"
+        onChange={ handleChange }
+        type="email"
+        placeholder="Email"
+        name="email"
+        data-testid="email-input"
+      />
+
+      <input
+        className="form-control"
+        type="password"
+        placeholder="Senha"
+        name="password"
+        onChange={ handleChange }
+        data-testid="password-input"
+      />
+
       <button
+        className="btn btn-info btn-block"
         onClick={ handleClick }
         disabled={ btnDisabled }
         type="button"
         data-testid="login-submit-btn"
-        className="btn btn-primary"
       >
         {' '}
         Entrar
