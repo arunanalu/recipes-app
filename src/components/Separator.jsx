@@ -5,7 +5,7 @@ export default function Separator({ separator }) {
   return (
     <div
       className="separator-2"
-      style={ separator ? { marginBottom: '140px' } : { marginBottom: '60px' } }
+      style={ separator ? { marginBottom: '162px' } : { marginBottom: '60px' } }
     />
   );
 }

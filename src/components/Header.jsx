@@ -40,7 +40,12 @@ export default function Header() {
       <header>
         <div className="header">
           <Link to="/perfil">
-            <img data-testid="profile-top-btn" src={ profileIcon } alt="icone-perfil" />
+            <img
+              className="iconFilter"
+              data-testid="profile-top-btn"
+              src={ profileIcon }
+              alt="icone-perfil"
+            />
           </Link>
           <h1 data-testid="page-title">
             { setHeaderName() }
@@ -62,13 +67,14 @@ export default function Header() {
                     data-testid="search-top-btn"
                     src={ searchIcon }
                     alt="icone-perfil"
+                    className="iconFilter"
                   />
                   {/* { display && <SearchHeader /> } */}
                 </button>
               )}
           </div>
         </div>
-        <div>
+        <div className="searchHeader">
           { display && <SearchHeader /> }
         </div>
       </header>

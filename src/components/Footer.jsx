@@ -16,6 +16,7 @@ export default function Footer() {
           data-testid="drinks-bottom-btn"
           src={ drinkIcon }
           alt="Ícone de drinks"
+          className="iconFilter"
         />
         <input
           type="image"
@@ -23,6 +24,7 @@ export default function Footer() {
           data-testid="explore-bottom-btn"
           src={ exploreIcon }
           alt="Ícone de bússola"
+          className="iconFilter"
         />
         <input
           type="image"
@@ -30,6 +32,7 @@ export default function Footer() {
           data-testid="food-bottom-btn"
           src={ mealIcon }
           alt="Ícone de comida"
+          className="iconFilter"
         />
       </div>
     </footer>
