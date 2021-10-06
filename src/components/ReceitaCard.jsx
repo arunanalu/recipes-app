@@ -5,14 +5,19 @@ export default function ReceitaCard({ thumb, index, name }) {
   return (
     <div
       data-testid={ `${index}-recipe-card` }
+      className="principalCard"
     >
-      <img
-        data-testid={ `${index}-card-img` }
-        width={ 50 }
-        src={ thumb }
-        alt={ name }
-      />
-      <p data-testid={ `${index}-card-name` }>{name}</p>
+      <div className="imgContainer">
+        <img
+          data-testid={ `${index}-card-img` }
+          // width={ 100 }
+          src={ thumb }
+          alt={ name }
+        />
+      </div>
+      <div className="textContainer">
+        <p data-testid={ `${index}-card-name` }>{name}</p>
+      </div>
     </div>
   );
 }

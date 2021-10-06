@@ -16,7 +16,7 @@ export default function PageComidas() {
   const PAGE = 'comidas';
 
   return (
-    <div>
+    <div className="principal">
       <Header />
       <Filter
         urlCategory={ URL_CATEGORY }
@@ -24,28 +24,31 @@ export default function PageComidas() {
         urlCategoryCard={ URL_FOODSCATEGORY }
       />
       <br />
-      { meals.map((comida, index) => {
-        if (index < NUMBER) {
-          return (
-            <Link
-              to={ {
-                pathname: `/comidas/${comida.idMeal}`,
-                state: { name: comida.strMeal },
-              } }
-              key={ comida.idMeal }
-            >
-              <ReceitaCard
-                thumb={ comida.strMealThumb }
-                index={ index }
-                name={ comida.strMeal }
-                page={ PAGE }
-                id={ comida.idMeal }
-              />
-            </Link>
-          );
-        }
-        return false;
-      }) }
+      <div className="cardContainer">
+        { meals.map((comida, index) => {
+          if (index < NUMBER) {
+            return (
+              <Link
+                to={ {
+                  pathname: `/comidas/${comida.idMeal}`,
+                  state: { name: comida.strMeal },
+                } }
+                key={ comida.idMeal }
+                className="principalLink"
+              >
+                <ReceitaCard
+                  thumb={ comida.strMealThumb }
+                  index={ index }
+                  name={ comida.strMeal }
+                  page={ PAGE }
+                  id={ comida.idMeal }
+                />
+              </Link>
+            );
+          }
+          return false;
+        }) }
+      </div>
       <div className="separator" />
       <Footer />
     </div>

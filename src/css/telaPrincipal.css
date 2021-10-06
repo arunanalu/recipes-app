@@ -1,1 +1,59 @@
 /* teste */
+.principal {
+  background-color: rgb(254, 238, 221);
+}
+
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: auto;
+  width: 92vw;
+}
+
+.filter button {
+  background-color: rgb(211, 145, 86);
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.637);
+  height: 50px;
+  margin: 3px;
+  width: 100px;
+  word-break: break-word;
+}
+
+.principalLink {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 0 10px;
+}
+
+.principalCard {
+  background-color: rgb(255, 211, 163);
+  border-radius: 10px;
+  height: 230px;
+  margin-bottom: 26px;
+  width: 280px;
+}
+
+.imgContainer {
+  height: 70%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.imgContainer img {
+  border-radius: 10px;
+  width: 100%;
+}
+
+.textContainer p {
+  margin-top: 14px;
+  text-align: center;
+}

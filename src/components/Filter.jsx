@@ -51,7 +51,7 @@ export default function Filter({ urlCategory, type, urlCategoryCard }) {
   };
 
   return (
-    <div>
+    <div className="filter">
       {result.map(
         (element, index) => index <= QUATRO && (
           <button
