@@ -17,6 +17,8 @@ export default function DrinkRecipeInProgress() {
       const url = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idType}`;
       const result = await fetch(url).then((data) => data.json());
       setRecipe(result.drinks);
+      // console.log('aqui');
+      // console.log(result.drinks);
     }
     if (localStorage.getItem('ingredientsCheck') === null) {
       localStorage.setItem('ingredientsCheck', '{}');

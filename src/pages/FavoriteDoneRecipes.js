@@ -8,6 +8,9 @@ export default function FavoriteDoneRecipes({ location: { pathname } }) {
   const [LocalRecipes, setLocalRecipes] = useState();
 
   useEffect(() => {
+    if (localStorage.getItem('doneRecipes') === null) {
+      localStorage.setItem('doneRecipes', '[]');
+    }
     const localStorageRecipes = pathname === '/receitas-favoritas'
       ? JSON.parse(localStorage.getItem('favoriteRecipes'))
       : JSON.parse(localStorage.getItem('doneRecipes'));

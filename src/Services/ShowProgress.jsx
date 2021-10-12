@@ -12,7 +12,27 @@ export default function ShowProgress({ recipe, ingredients, pathID, type }) {
   const [favorite, setFavorite] = useState(false);
   const history = useHistory();
   const [ingre, setIngre] = useState([]);
-  console.log(ingredients);
+  // console.log('aqui a receita que deve ser passada');
+  // console.log(recipe);
+  // console.log(type);
+  const localStorageObj = (
+    type === 'comidas' ? { alcoholicOrNot: '',
+      area: recipe.strArea,
+      category: recipe.strCategory,
+      id: recipe.idMeal,
+      image: recipe.strMealThumb,
+      name: recipe.strMeal,
+      tags: recipe.strTags,
+      type: 'comida' } : { alcoholicOrNot: recipe.strAlcoholic,
+      area: '',
+      category: recipe.strCategory,
+      id: recipe.strDrink,
+      image: recipe.strDrinkThumb,
+      name: recipe.strDrink,
+      tags: recipe.strTags,
+      type: 'bebida' }
+  );
+  // console.log(localStorageObj);
 
   useEffect(() => {
     const checkedIngre = JSON.parse(localStorage.getItem('ingredientsCheck'));
@@ -21,6 +41,9 @@ export default function ShowProgress({ recipe, ingredients, pathID, type }) {
     }
     if (localStorage.getItem('favoriteRecipes') === null) {
       localStorage.setItem('favoriteRecipes', '[]');
+    }
+    if (localStorage.getItem('doneRecipes') === null) {
+      localStorage.setItem('doneRecipes', '[]');
     }
   }, [pathID]);
 
@@ -44,6 +67,13 @@ export default function ShowProgress({ recipe, ingredients, pathID, type }) {
     const checkedIngre = JSON.parse(localStorage.getItem('ingredientsCheck'));
     localStorage.setItem('ingredientsCheck',
       JSON.stringify({ ...checkedIngre, [pathID]: test }));
+  }
+
+  function onClickFunction() {
+    const oldStore = JSON.parse(localStorage.getItem('doneRecipes'));
+    const newStore = [...oldStore, localStorageObj];
+    localStorage.setItem('doneRecipes', JSON.stringify(newStore));
+    history.push('/receitas-feitas');
   }
 
   return (
@@ -102,7 +132,8 @@ export default function ShowProgress({ recipe, ingredients, pathID, type }) {
         type="button"
         data-testid="finish-recipe-btn"
         disabled={ ingre.length !== ingredients.length }
-        onClick={ () => history.push('/receitas-feitas') }
+        // onClick={ () => history.push('/receitas-feitas') }
+        onClick={ onClickFunction }
       >
         Finalizar Receita
       </button>

@@ -14,10 +14,13 @@ function FavoriteCard({ recipe, index }) {
     alcoholicOrNot,
     area,
     category,
-    type,
-    doneDate,
-    tags } = recipe;
+    // tags,
+    // doneDate,
+    type } = recipe;
   const history = useHistory();
+
+  // console.log('aqui os dados que devem ser recebidos');
+  // console.log(recipe);
 
   function copyToClipboard() {
     const notify = () => toast('Link copiado!');
@@ -49,7 +52,7 @@ function FavoriteCard({ recipe, index }) {
       <Link to={ `/${type}s/${id}` }>
         <p data-testid={ `${index}-horizontal-name` }>{ name }</p>
       </Link>
-      {history.location.pathname === '/receitas-feitas'
+      {/* {history.location.pathname === '/receitas-feitas'
       && (
         <>
           {tags.length > 0 && tags.map((tag) => (
@@ -59,7 +62,7 @@ function FavoriteCard({ recipe, index }) {
           <br />
           <p data-testid={ `${index}-horizontal-done-date` }>{`Feita em ${doneDate}`}</p>
         </>
-      )}
+      )} */}
       <input
         alt="Ícone de compartilhamento"
         data-testid={ `${index}-horizontal-share-btn` }
