@@ -20,7 +20,12 @@ function ShowRecipe({ revenue, favorite, setFavorite, pathID,
 
   function startRecipe() {
     const verifyRecipe = recipesInProgress.some((idRecipe) => idRecipe === pathID);
-    if (verifyRecipe) return;
+    if (verifyRecipe) {
+      return history.push({
+        pathname: `${pathID}/in-progress`,
+        state: { recipe: revenue, ingredients: ingredientsRecipe, pathID },
+      });
+    }
     setRecipeInProgress([...recipesInProgress, pathID]);
     const recipesLocalStorage = JSON.parse(localStorage.getItem('inProgressRecipes'));
     const recipeInProgress = {

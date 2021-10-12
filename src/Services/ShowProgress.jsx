@@ -15,6 +15,8 @@ export default function ShowProgress({ recipe, ingredients, pathID, type }) {
   // console.log('aqui a receita que deve ser passada');
   // console.log(recipe);
   // console.log(type);
+  console.log(ingredients);
+  console.log(ingre);
   const localStorageObj = (
     type === 'comidas' ? { alcoholicOrNot: '',
       area: recipe.strArea,
@@ -26,7 +28,7 @@ export default function ShowProgress({ recipe, ingredients, pathID, type }) {
       type: 'comida' } : { alcoholicOrNot: recipe.strAlcoholic,
       area: '',
       category: recipe.strCategory,
-      id: recipe.strDrink,
+      id: recipe.idDrink,
       image: recipe.strDrinkThumb,
       name: recipe.strDrink,
       tags: recipe.strTags,
@@ -35,10 +37,10 @@ export default function ShowProgress({ recipe, ingredients, pathID, type }) {
   // console.log(localStorageObj);
 
   useEffect(() => {
-    const checkedIngre = JSON.parse(localStorage.getItem('ingredientsCheck'));
-    if (checkedIngre[pathID]) {
-      setIngre([...checkedIngre[pathID]]);
-    }
+    // const checkedIngre = JSON.parse(localStorage.getItem('ingredientsCheck'));
+    // if (checkedIngre[pathID]) {
+    //   setIngre([...checkedIngre[pathID]]);
+    // }
     if (localStorage.getItem('favoriteRecipes') === null) {
       localStorage.setItem('favoriteRecipes', '[]');
     }
