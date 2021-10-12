@@ -116,7 +116,7 @@ function ShowRecipeDrinks({ revenue, favorite, setFavorite, pathID,
           className="button-start-recipe"
           onClick={ startRecipe }
         >
-          { recipeLocalStorage ? 'Continuar Receita' : 'Iniciar Receita' }
+          { recipeLocalStorage ? 'Fazer de novo' : 'Iniciar Receita' }
         </button>
       </div>))
   );

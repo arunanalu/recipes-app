@@ -13,7 +13,7 @@ export default function ExploreIngredientsArea() {
   const [areas] = useAreasApi();
   let temp = [];
   if (result.length !== 0) temp = result.meals;
-  const NUMBER = 12;
+  const NUMBER = 120;
 
   useEffect(() => {
     async function requisition() {

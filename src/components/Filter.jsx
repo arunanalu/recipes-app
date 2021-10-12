@@ -9,8 +9,8 @@ export default function Filter({ urlCategory, type, urlCategoryCard }) {
   const location = useLocation();
   const [category, loading] = useCategoryApi(urlCategory);
   const [btn, setBtn] = useState('');
-  const { setMeals, setDrinks } = useContext(myContext);
-  const QUATRO = 4;
+  const { setMeals, setDrinks, categoryStyle } = useContext(myContext);
+  const NUMBER = 40;
   let result = [];
   if (loading === true) result = category[type];
 
@@ -51,9 +51,9 @@ export default function Filter({ urlCategory, type, urlCategoryCard }) {
   };
 
   return (
-    <div className="filter">
+    <div className="filter" style={ categoryStyle }>
       {result.map(
-        (element, index) => index <= QUATRO && (
+        (element, index) => index <= NUMBER && (
           <button
             type="button"
             key={ index }

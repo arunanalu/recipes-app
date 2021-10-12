@@ -6,7 +6,12 @@ import RedirectDetailsPage from '../utils/RedirectDetailsPage';
 import VerifyFirsLetter from '../utils/VerifyFirstLetter';
 
 export default function SearchHeader() {
-  const { setMeals, setDrinks, setResultSearch } = useContext(myContext);
+  const {
+    setMeals,
+    setDrinks,
+    setResultSearch,
+    setCategoryStyle,
+    categoryStyle } = useContext(myContext);
   const location = useLocation();
   const [searchData, setSearchData] = useState({
     searchText: '',
@@ -46,6 +51,12 @@ export default function SearchHeader() {
     }
     setDrinks(drinks);
     return setDataFetch(drinks);
+  }
+
+  function categoryChange() {
+    if (categoryStyle.display === 'none') {
+      setCategoryStyle({ display: 'flex' });
+    } else setCategoryStyle({ display: 'none' });
   }
 
   const boolean = true;
@@ -110,6 +121,7 @@ export default function SearchHeader() {
       >
         Buscar
       </button>
+      <button onClick={ categoryChange } type="button">Exibir categorias</button>
       { dataFetch.length === 1 && RedirectDetailsPage(location, dataFetch) }
     </div>
   );

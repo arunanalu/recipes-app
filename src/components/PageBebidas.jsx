@@ -9,7 +9,7 @@ import '../css/telaPrincipal.css';
 
 export default function PageBebidas() {
   const { drinks } = useContext(myContext);
-  const NUMBER = 12;
+  const NUMBER = 120;
   const URL_CATEGORY = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list';
   const URL_DRINKCATEGORY = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=';
   const TYPE = 'drinks';
