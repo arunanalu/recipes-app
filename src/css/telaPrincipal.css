@@ -33,24 +33,34 @@
 .cardContainer {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .principalCard {
   height: 200px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  overflow: hidden;
+  position: relative;
+  width: 95vw;
+}
+
+.principalCard img {
+  position: absolute;
+  top: -60px;
+  width: 100%;
+}
+
+.textContainer {
+  background: linear-gradient(0deg, black 2%, rgba(0, 0, 0, 0.716) 30%, rgba(0, 0, 0, 0) 92%);
+  bottom: 0;
+  color: white;
+  height: 60px;
+  position: absolute;
+  text-align: center;
   width: 100vw;
 }
 
-.imgContainer {
-  height: 80%;
-  overflow: hidden;
-  width: 100%;
-}
-
-.imgContainer img {
-  width: 100%;
-}
-
 .textContainer p {
-  text-align: center;
+  font-size: 20px;
+  margin-top: 15px;
 }
