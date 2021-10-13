@@ -11,6 +11,8 @@ export default function SearchHeader() {
     setDrinks,
     setResultSearch,
     setCategoryStyle,
+    setDisplay,
+    setSeparator,
     categoryStyle } = useContext(myContext);
   const location = useLocation();
   const [searchData, setSearchData] = useState({
@@ -54,9 +56,11 @@ export default function SearchHeader() {
   }
 
   function categoryChange() {
-    if (categoryStyle.display === 'none') {
-      setCategoryStyle({ display: 'flex' });
-    } else setCategoryStyle({ display: 'none' });
+    if (categoryStyle === true) {
+      setCategoryStyle(false);
+    } else setCategoryStyle(true);
+    setDisplay(false);
+    setSeparator(false);
   }
 
   const boolean = true;

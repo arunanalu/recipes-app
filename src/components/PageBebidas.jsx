@@ -8,12 +8,14 @@ import ReceitaCard from './ReceitaCard';
 import '../css/telaPrincipal.css';
 
 export default function PageBebidas() {
-  const { drinks } = useContext(myContext);
+  const { drinks, categoryStyle } = useContext(myContext);
   const NUMBER = 120;
   const URL_CATEGORY = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list';
   const URL_DRINKCATEGORY = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=';
   const TYPE = 'drinks';
   const PAGE = 'bebidas';
+  const styleFilter = categoryStyle === true ? { display: 'none' } : { display: 'flex' };
+  const styleMain = categoryStyle === true ? { display: 'flex' } : { display: 'none' };
 
   return (
     <div className="principal">
@@ -22,9 +24,10 @@ export default function PageBebidas() {
         urlCategory={ URL_CATEGORY }
         type={ TYPE }
         urlCategoryCard={ URL_DRINKCATEGORY }
+        styleFilter={ styleFilter }
       />
       <br />
-      <div className="cardContainer">
+      <div className="cardContainer" style={ styleMain }>
         { drinks.map((bebida, index) => {
           if (index < NUMBER) {
             return (

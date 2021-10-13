@@ -10,7 +10,9 @@ export default function MyProvider({ children }, usert = '') {
   const [resultSearch, setResultSearch] = useState({});
   const [startRecipe, setStartRecipe] = useState(false);
   const [recipesInProgress, setRecipeInProgress] = useState([]);
-  const [categoryStyle, setCategoryStyle] = useState({ display: 'none' });
+  const [categoryStyle, setCategoryStyle] = useState(true);
+  const [display, setDisplay] = useState(false);
+  const [separator, setSeparator] = useState(false);
   const contextValue = { user, setUser };
   const context = {
     drinks,
@@ -26,6 +28,10 @@ export default function MyProvider({ children }, usert = '') {
     setRecipeInProgress,
     categoryStyle,
     setCategoryStyle,
+    display,
+    setDisplay,
+    separator,
+    setSeparator,
   };
 
   useEffect(() => {

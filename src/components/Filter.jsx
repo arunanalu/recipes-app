@@ -5,11 +5,11 @@ import useCategoryApi from '../hooks/useCategoryApi';
 import myContext from '../context/mycontext';
 import fetchFoods, { fetchDrinks } from '../Services/fetchApiFoodsandDrinks';
 
-export default function Filter({ urlCategory, type, urlCategoryCard }) {
+export default function Filter({ urlCategory, type, urlCategoryCard, styleFilter }) {
   const location = useLocation();
   const [category, loading] = useCategoryApi(urlCategory);
   const [btn, setBtn] = useState('');
-  const { setMeals, setDrinks, categoryStyle } = useContext(myContext);
+  const { setMeals, setDrinks, setCategoryStyle } = useContext(myContext);
   const NUMBER = 40;
   let result = [];
   if (loading === true) result = category[type];
@@ -22,10 +22,12 @@ export default function Filter({ urlCategory, type, urlCategoryCard }) {
         let res = await fetchFoods('semBusca');
         res = res[type];
         setMeals(res);
+        setCategoryStyle(true);
       } else {
         let res = await fetchDrinks('semBusca');
         res = res[type];
         setDrinks(res);
+        setCategoryStyle(true);
       }
     } else {
       event.persist();
@@ -33,11 +35,13 @@ export default function Filter({ urlCategory, type, urlCategoryCard }) {
       response = await response.json();
       response = response[type];
       setBtn(event.target);
+      setCategoryStyle(true);
       return location.pathname === '/bebidas' ? setDrinks(response) : setMeals(response);
     }
   };
 
   const allFilter = async () => {
+    setCategoryStyle(true);
     if (type === 'meals') {
       let res = await fetchFoods('semBusca');
       res = res[type];
@@ -51,7 +55,7 @@ export default function Filter({ urlCategory, type, urlCategoryCard }) {
   };
 
   return (
-    <div className="filter" style={ categoryStyle }>
+    <div className="filter" style={ styleFilter }>
       {result.map(
         (element, index) => index <= NUMBER && (
           <button
@@ -78,4 +82,5 @@ Filter.propTypes = {
   urlCategory: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   urlCategoryCard: PropTypes.string.isRequired,
+  styleFilter: PropTypes.objectOf(PropTypes.string).isRequired,
 };

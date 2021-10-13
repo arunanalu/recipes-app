@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import profileIcon from '../images/profileIcon.svg';
@@ -6,10 +6,12 @@ import searchIcon from '../images/searchIcon.svg';
 import SearchHeader from './SearchHeader';
 import '../css/header.css';
 import Separator from './Separator';
+import myContext from '../context/mycontext';
 
 export default function Header() {
-  const [display, setDisplay] = useState(false);
-  const [separator, setSeparator] = useState(false);
+  // const [display, setDisplay] = useState(false);
+  const { display, setDisplay, separator, setSeparator } = useContext(myContext);
+  // const [separator, setSeparator] = useState(false);
   const location = useLocation();
 
   function setHeaderName() {

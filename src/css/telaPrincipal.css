@@ -5,10 +5,12 @@
 }
 
 .filter {
-  display: none;
+  display: flex;
   flex-wrap: wrap;
+  height: 60vh;
   justify-content: space-evenly;
   margin: auto;
+  margin-top: 120px;
   width: 92vw;
 }
 
@@ -31,30 +33,24 @@
 .cardContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 0 10px;
 }
 
 .principalCard {
-  background-color: rgb(255, 211, 163);
-  border-radius: 10px;
-  height: 230px;
-  margin-bottom: 26px;
-  width: 280px;
+  height: 200px;
+  margin-bottom: 20px;
+  width: 100vw;
 }
 
 .imgContainer {
-  height: 70%;
+  height: 80%;
   overflow: hidden;
   width: 100%;
 }
 
 .imgContainer img {
-  border-radius: 10px;
   width: 100%;
 }
 
 .textContainer p {
-  margin-top: 14px;
   text-align: center;
 }
