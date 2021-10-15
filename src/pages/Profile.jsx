@@ -8,6 +8,9 @@ import '../css/profile.css';
 export default function Profile() {
   const history = useHistory();
   const emailStorage = JSON.parse(localStorage.getItem('user'));
+  function resetLocal() {
+    localStorage.setItem('doneRecipes', '[]');
+  }
   return (
     <div>
       <Header />
@@ -26,6 +29,9 @@ export default function Profile() {
             data-testid="profile-done-btn"
           >
             Receitas Feitas
+          </button>
+          <button type="button" onClick={ resetLocal }>
+            Resetar receitas feitas
           </button>
           <button
             onClick={ () => history.push('/receitas-favoritas') }

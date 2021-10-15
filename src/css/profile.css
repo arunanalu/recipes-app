@@ -48,5 +48,9 @@
 }
 
 .profile-btns button:nth-of-type( 3 ) {
+  background-color: rgb(197, 138, 86);
+}
+
+.profile-btns button:nth-of-type( 4 ) {
   background-color: rgb(153, 15, 15);
 }

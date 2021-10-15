@@ -58,6 +58,7 @@
   bottom: 0;
   color: white;
   height: 60px;
+  overflow: scroll;
   position: absolute;
   text-align: center;
   width: 100vw;
