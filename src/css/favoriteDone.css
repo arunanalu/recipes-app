@@ -1,0 +1,65 @@
+.favorite {
+  background-color: rgb(254, 238, 221);
+  min-height: 100vh;
+}
+
+.favorite-btns {
+  align-items: center;
+  display: flex;
+  height: 60px;
+  justify-content: space-evenly;
+  width: 100vw;
+}
+
+.favorite-btns button {
+  background-color: rgb(197, 138, 86);
+  border: 1px solid rgba(0, 0, 0, 0.274);
+  color: white;
+  height: 36px;
+  width: 80px;
+}
+
+.favorite-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 40px;
+  padding-bottom: 80px;
+}
+
+.favorite-card {
+  background-color: rgb(241, 186, 155);
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.308);
+  height: 240px;
+  margin-bottom: 26px;
+  overflow: scroll;
+  padding-top: 10px;
+  text-align: center;
+  width: 140px;
+}
+
+.copy-btn2, .favorite-btn2 {
+  background-color: unset;
+  border: none;
+  height: 26px;
+  margin: 0 8px;
+  width: 26px;
+}
+
+.btn-container2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.favorite-img {
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.fav-link {
+  color: rgb(72, 72, 224);
+}

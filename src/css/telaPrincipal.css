@@ -54,7 +54,7 @@
 }
 
 .textContainer {
-  background: linear-gradient(0deg, black 2%, rgba(0, 0, 0, 0.716) 30%, rgba(0, 0, 0, 0) 92%);
+  background: linear-gradient(0deg, black 2%, var(--linear-1) 30%, rgba(0, 0, 0, 0) 92%);
   bottom: 0;
   color: white;
   height: 60px;

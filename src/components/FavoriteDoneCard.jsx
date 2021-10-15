@@ -37,19 +37,20 @@ function FavoriteCard({ recipe, index }) {
   }
 
   return (
-    <div>
+    <div className="favorite-card">
       <input
         type="image"
         width="100px"
         alt=""
         data-testid={ `${index}-horizontal-image` }
         src={ image }
+        className="favorite-img"
         onClick={ () => history.push(`/${type}s/${id}`) }
       />
       <p data-testid={ `${index}-horizontal-top-text` }>
         { !alcoholicOrNot ? `${area} - ${category}` : alcoholicOrNot }
       </p>
-      <Link to={ `/${type}s/${id}` }>
+      <Link className="fav-link" to={ `/${type}s/${id}` }>
         <p data-testid={ `${index}-horizontal-name` }>{ name }</p>
       </Link>
       {/* {history.location.pathname === '/receitas-feitas'
@@ -63,26 +64,31 @@ function FavoriteCard({ recipe, index }) {
           <p data-testid={ `${index}-horizontal-done-date` }>{`Feita em ${doneDate}`}</p>
         </>
       )} */}
-      <input
-        alt="Ícone de compartilhamento"
-        data-testid={ `${index}-horizontal-share-btn` }
-        type="image"
-        src={ shareIcon }
-        onClick={ copyToClipboard }
-      />
-      <ToastContainer />
-      { history.location.pathname === '/receitas-favoritas'
-      && (
-        <button
-          type="button"
-          onClick={ () => handleClick(id) }
-        >
-          <img
-            src={ blackHeartIcon }
-            alt="favorite"
-            data-testid={ `${index}-horizontal-favorite-btn` }
-          />
-        </button>)}
+      <div className="btn-container2">
+        <input
+          alt="Ícone de compartilhamento"
+          data-testid={ `${index}-horizontal-share-btn` }
+          type="image"
+          src={ shareIcon }
+          onClick={ copyToClipboard }
+          className="copy-btn2"
+        />
+        <ToastContainer />
+        { history.location.pathname === '/receitas-favoritas'
+        && (
+          <button
+            type="button"
+            onClick={ () => handleClick(id) }
+            className="favorite-btn2"
+          >
+            <img
+              src={ blackHeartIcon }
+              className="favorite-btn2"
+              alt="favorite"
+              data-testid={ `${index}-horizontal-favorite-btn` }
+            />
+          </button>)}
+      </div>
     </div>
   );
 }

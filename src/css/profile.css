@@ -1,0 +1,52 @@
+.profile {
+  background-color: rgb(254, 238, 221);
+  height: 90vh;
+  margin-top: -18px;
+  width: 100vw;
+}
+
+.profile-email {
+  align-items: center;
+  background-color: rgb(80, 45, 23);
+  display: flex;
+  height: 100px;
+  justify-content: center;
+}
+
+.profile p {
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+.profile-btns {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: space-evenly;
+  margin-top: 40px;
+}
+
+.profile-btns button {
+  border: 1px solid rgba(0, 0, 0, 0.267);
+  border-radius: 5px;
+  color: white;
+  height: 50px;
+  width: 240px;
+}
+
+.profile-btns button:nth-of-type( 1 ) {
+  background-color: rgb(197, 138, 86);
+}
+
+.profile-btns button:nth-of-type( 2 ) {
+  background-color: rgb(197, 138, 86);
+}
+
+.profile-btns button:nth-of-type( 3 ) {
+  background-color: rgb(153, 15, 15);
+}
