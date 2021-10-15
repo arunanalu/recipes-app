@@ -6,6 +6,7 @@ import ReceitaCard from '../components/ReceitaCard';
 import useAreasApi from '../hooks/useAreaApi';
 import fetchFoods from '../Services/fetchApiFoodsandDrinks';
 import fetchAreaFoods from '../Services/fetchArea';
+import '../css/telaPrincipal.css';
 
 export default function ExploreIngredientsArea() {
   const [area, setArea] = useState('all');
@@ -31,7 +32,7 @@ export default function ExploreIngredientsArea() {
   console.log(result);
 
   return (
-    <div>
+    <div className="principal">
       <Header />
       <select
         data-testid="explore-by-area-dropdown"
@@ -44,27 +45,30 @@ export default function ExploreIngredientsArea() {
         ))}
         <option value="all" data-testid="All-option">All</option>
       </select>
-      { temp.map((comida, index) => {
-        if (index < NUMBER) {
-          return (
-            <Link
-              to={ {
-                pathname: `/comidas/${comida.idMeal}`,
-                state: { name: comida.strMeal },
-              } }
-              key={ comida.idMeal }
-            >
-              <ReceitaCard
-                thumb={ comida.strMealThumb }
-                index={ index }
-                name={ comida.strMeal }
-                id={ comida.idMeal }
-              />
-            </Link>
-          );
-        }
-        return false;
-      }) }
+      <div className="cardContainer">
+        { temp.map((comida, index) => {
+          if (index < NUMBER) {
+            return (
+              <Link
+                to={ {
+                  pathname: `/comidas/${comida.idMeal}`,
+                  state: { name: comida.strMeal },
+                } }
+                key={ comida.idMeal }
+                className="principalLink"
+              >
+                <ReceitaCard
+                  thumb={ comida.strMealThumb }
+                  index={ index }
+                  name={ comida.strMeal }
+                  id={ comida.idMeal }
+                />
+              </Link>
+            );
+          }
+          return false;
+        }) }
+      </div>
       <div className="separator" />
       <Footer />
     </div>

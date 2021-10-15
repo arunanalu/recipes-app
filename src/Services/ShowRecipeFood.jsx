@@ -64,9 +64,10 @@ function ShowRecipe({ revenue, favorite, setFavorite, pathID,
           alt="revenue-img"
           data-testid="recipe-photo"
           width={ 100 }
+          className="details-img"
         />
         <h4 data-testid="recipe-title">{recipe.strMeal}</h4>
-        <p data-testid="recipe-category">{ recipe.strCategory }</p>
+        <p data-testid="recipe-category">{`Category: ${recipe.strCategory}`}</p>
         {arr[0] !== undefined
       && Object.entries(arr[0])
         .filter((value) => value[0].includes('strIngredient'))
@@ -76,10 +77,26 @@ function ShowRecipe({ revenue, favorite, setFavorite, pathID,
             data-testid={ `${index}-ingredient-name-and-measure` }
             key={ response[1] }
           >
-            { response[1] }
+            {`${response[1]} - `}
+            {
+              arr[0] !== undefined
+              && Object.entries(arr[0])
+                .filter((value) => value[0].includes('strMeasure'))
+                .filter((ingredient) => ingredient[1] !== '' && ingredient[1] !== null)
+                .map((response2, index2) => index2 === index && (
+                  (
+                    <span
+                      data-testid={ `${index2}-ingredient-name-and-measure` }
+                      key={ response2[1] }
+                    >
+                      { response2[1] }
+                    </span>
+                  )
+                ))
+            }
           </p>
         ))}
-        {arr[0] !== undefined
+        {/* {arr[0] !== undefined
           && Object.entries(arr[0])
             .filter((value) => value[0].includes('strMeasure'))
             .filter((ingredient) => ingredient[1] !== '' && ingredient[1] !== null)
@@ -90,7 +107,7 @@ function ShowRecipe({ revenue, favorite, setFavorite, pathID,
               >
                 { response[1] }
               </p>
-            ))}
+            ))} */}
         <p data-testid="instructions">{ recipe.strInstructions }</p>
         <a href={ recipe.strYoutube } data-testid="video">
           {recipe.strYoutube}

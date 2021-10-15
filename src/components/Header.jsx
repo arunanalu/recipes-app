@@ -54,8 +54,7 @@ export default function Header() {
           </h1>
           <div>
             {(location.pathname === '/comidas'
-            || location.pathname === '/bebidas'
-            || location.pathname === '/explorar/comidas/area')
+            || location.pathname === '/bebidas')
               && (
                 <button
                   type="button"

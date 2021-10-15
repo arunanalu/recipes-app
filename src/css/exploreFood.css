@@ -1,0 +1,56 @@
+.explore-food-container {
+  align-items: center;
+  background-color: rgb(254, 238, 221);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -35px;
+  min-height: 90vh;
+  width: 100vw;
+}
+
+.explore-food-container button {
+  background-color: rgb(197, 138, 86);
+  border: none;
+  color: white;
+  font-size: 28px;
+  font-weight: 600;
+  height: 18vh;
+  margin: 10px;
+  width: 95vw;
+
+  /* color: white; */
+}
+
+/* .explore-food-container button:nth-child( 1 ) {
+  background-color: rgb(197, 138, 86);
+}
+
+.explore-food-container button:nth-child( 2 ) {
+  background-color: rgb(197, 138, 86);
+}
+
+.explore-food-container button:nth-child( 3 ) {
+  background-color: rgb(197, 138, 86);
+} */
+
+/* .explore-comidas {
+  background-image: url(https://cdn.pixabay.com/photo/2018/09/30/00/38/food-3712592_960_720.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.explore-bebidas {
+  background-image: url(https://media.istockphoto.com/photos/food-menu-background-drinks-picture-id618872152?k=20&m=618872152&s=170667a&w=0&h=5_d631Q7uF1NuvvPbv6iEZJLJpGQ_4iQNfpA_71Xb2c=);
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+/* .explore-food-separator {
+  width: 90vw;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.87);
+  box-shadow: 0 0 2px rgb(0, 0, 0);
+  z-index: 3;
+  margin: 5px;
+} */

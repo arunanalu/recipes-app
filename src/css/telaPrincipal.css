@@ -7,21 +7,24 @@
 .filter {
   display: flex;
   flex-wrap: wrap;
-  height: 60vh;
+
+  /* height: 70vh; */
+  height: fit-content;
   justify-content: space-evenly;
   margin: auto;
-  margin-top: 120px;
+  margin-top: 80px;
   width: 92vw;
 }
 
 .filter button {
-  background-color: rgb(211, 145, 86);
+  background-color: rgb(197, 138, 86);
   border: none;
   border-radius: 2px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.637);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.637);
+  color: white;
   height: 50px;
-  margin: 3px;
-  width: 100px;
+  margin: 10px;
+  width: 130px;
   word-break: break-word;
 }
 

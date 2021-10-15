@@ -4,6 +4,7 @@ import './details.css';
 import myContext from '../context/mycontext';
 import ShowRecipeFood from '../Services/ShowRecipeFood';
 import 'react-toastify/dist/ReactToastify.css';
+import '../css/details.css';
 
 export default function DetailsPageComidas() {
   const { recipesInProgress, setRecipeInProgress } = useContext(myContext);
@@ -34,7 +35,7 @@ export default function DetailsPageComidas() {
   }, [pathname, pathID]);
 
   return (
-    <div>
+    <div className="details">
       { revenue && <ShowRecipeFood
         revenue={ revenue }
         favorite={ favorite }

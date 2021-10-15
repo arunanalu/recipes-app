@@ -1,0 +1,27 @@
+.ingredients {
+  background-color: rgb(254, 238, 221);
+  height: fit-content;
+  margin-top: -20px;
+  padding-bottom: 80px;
+  padding-top: 40px;
+  width: 100vw;
+}
+
+.ingredients-container {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: auto;
+  width: 95vw;
+}
+
+.ingredients-container button {
+  background-color: rgba(240, 204, 210, 0.562);
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.836);
+  height: 150px;
+  margin-bottom: 15px;
+  width: 150px;
+}

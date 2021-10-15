@@ -1,0 +1,40 @@
+.explore-container {
+  align-items: center;
+  background-color: rgb(254, 238, 221);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -38px;
+  min-height: 90vh;
+  width: 100vw;
+}
+
+.explore-container button {
+  border: none;
+  color: white;
+  font-size: 28px;
+  font-weight: 600;
+  height: 35vh;
+  width: 95vw;
+}
+
+.explore-comidas {
+  background-image: url('https://cdn.pixabay.com/photo/2018/09/30/00/38/food-3712592_960_720.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.explore-bebidas {
+  background-image: url('https://media.istockphoto.com/photos/food-menu-background-drinks-picture-id618872152?k=20&m=618872152&s=170667a&w=0&h=5_d631Q7uF1NuvvPbv6iEZJLJpGQ_4iQNfpA_71Xb2c=');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.explore-separator {
+  background-color: rgba(0, 0, 0, 0.87);
+  box-shadow: 0 0 2px black;
+  height: 2px;
+  margin: 10px;
+  width: 90vw;
+  z-index: 3;
+}

@@ -3,6 +3,7 @@ import { useLocation } from 'react-router';
 import myContext from '../context/mycontext';
 import 'react-toastify/dist/ReactToastify.css';
 import ShowRecipeDrinks from '../Services/ShowRecipeDrinks';
+import '../css/details.css';
 
 export default function DetailsPageBebidas() {
   const { recipesInProgress, setRecipeInProgress } = useContext(myContext);
@@ -33,7 +34,7 @@ export default function DetailsPageBebidas() {
   }, [pathname, pathID]);
 
   return (
-    <div>
+    <div className="details">
       { revenue && <ShowRecipeDrinks
         revenue={ revenue }
         favorite={ favorite }

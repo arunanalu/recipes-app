@@ -1,0 +1,23 @@
+.explore-drinks-container {
+  align-items: center;
+  background-color: rgb(254, 238, 221);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -35px;
+  min-height: 90vh;
+  width: 100vw;
+}
+
+.explore-drinks-container button {
+  background-color: rgb(197, 138, 86);
+  border: none;
+  color: white;
+  font-size: 28px;
+  font-weight: 600;
+  height: 18vh;
+  margin: 10px;
+  width: 95vw;
+
+  /* color: white; */
+}

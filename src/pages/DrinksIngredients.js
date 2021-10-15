@@ -3,6 +3,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import IngredientsCard from '../components/IngredientsCard';
 import { fetchIngredients } from '../Services/fetchApiFoodsandDrinks';
+import '../css/exploreIngredients.css';
 
 export default function DrinksIngredients() {
   const [drinksIngredients, setDrinksIngredients] = useState([]);
@@ -12,16 +13,21 @@ export default function DrinksIngredients() {
       .then((drinks) => setDrinksIngredients(drinks));
   }, []);
   return (
-    <div>
+    <div className="ingredients-principal">
       <Header />
-      { drinksIngredients.map((bebida, index) => (
-        <IngredientsCard
-          key={ index }
-          index={ index }
-          name={ bebida.strIngredient1 }
-        />
-      ))}
-      <Footer />
+      <div className="ingredients">
+        <div className="ingredients-container">
+          { drinksIngredients.map((bebida, index) => (
+            <IngredientsCard
+              key={ index }
+              index={ index }
+              name={ bebida.strIngredient1 }
+            />
+          ))}
+          <Footer />
+        </div>
+      </div>
+      {/* <div className="separator" /> */}
     </div>
   );
 }
