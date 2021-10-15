@@ -3,6 +3,10 @@
   min-height: 100vh;
 }
 
+.details-img-container {
+  border: 2px solid black;
+}
+
 .details-img {
   width: 100vw;
 }

@@ -59,13 +59,15 @@ function ShowRecipe({ revenue, favorite, setFavorite, pathID,
   return (
     revenue.map((recipe) => (
       <div className="recipe" key={ recipe.idMeal }>
-        <img
-          src={ recipe.strMealThumb }
-          alt="revenue-img"
-          data-testid="recipe-photo"
-          width={ 100 }
-          className="details-img"
-        />
+        <div className="details-img-container">
+          <img
+            src={ recipe.strMealThumb }
+            alt="revenue-img"
+            data-testid="recipe-photo"
+            width={ 100 }
+            className="details-img"
+          />
+        </div>
         <h4 data-testid="recipe-title">{recipe.strMeal}</h4>
         <p data-testid="recipe-category">{`Category: ${recipe.strCategory}`}</p>
         {arr[0] !== undefined
