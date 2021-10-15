@@ -60,7 +60,7 @@ function ShowRecipeDrinks({ revenue, favorite, setFavorite, pathID,
 
   return (
     revenue.map((recipe) => (
-      <div className="recipe" key={ recipe.idDrink }>
+      <div key={ recipe.idDrink }>
         <div className="details-img-container">
           <img
             src={ recipe.strDrinkThumb }
@@ -70,36 +70,41 @@ function ShowRecipeDrinks({ revenue, favorite, setFavorite, pathID,
             className="details-img"
           />
         </div>
-        <h4 data-testid="recipe-title">{recipe.strDrink}</h4>
-        <p data-testid="recipe-category">{ recipe.strAlcoholic }</p>
-        {arr[0] !== undefined
-      && Object.entries(arr[0])
-        .filter((value) => value[0].includes('strIngredient'))
-        .filter((ingredient) => ingredient[1] !== '' && ingredient[1] !== null)
-        .map((response, index) => (
-          <p
-            data-testid={ `${index}-ingredient-name-and-measure` }
-            key={ response[1] }
-          >
-            {`${response[1]} - `}
-            {
-              arr[0] !== undefined
-              && Object.entries(arr[0])
-                .filter((value) => value[0].includes('strMeasure'))
-                .filter((ingredient) => ingredient[1] !== '' && ingredient[1] !== null)
-                .map((response2, index2) => index2 === index && (
-                  (
-                    <span
-                      data-testid={ `${index2}-ingredient-name-and-measure` }
-                      key={ response2[1] }
-                    >
-                      { response2[1] }
-                    </span>
-                  )
-                ))
-            }
-          </p>
-        ))}
+        <div className="details-title-container">
+          <h4 data-testid="recipe-title">{recipe.strDrink}</h4>
+          <p data-testid="recipe-category">{ recipe.strAlcoholic }</p>
+        </div>
+        <h4 className="details-ingredientes-title">Ingredientes:</h4>
+        <div className="details-ingredients-container">
+          {arr[0] !== undefined
+        && Object.entries(arr[0])
+          .filter((value) => value[0].includes('strIngredient'))
+          .filter((ingredient) => ingredient[1] !== '' && ingredient[1] !== null)
+          .map((response, index) => (
+            <p
+              data-testid={ `${index}-ingredient-name-and-measure` }
+              key={ response[1] }
+            >
+              <strong>{`${response[1]} - `}</strong>
+              {
+                arr[0] !== undefined
+                && Object.entries(arr[0])
+                  .filter((value) => value[0].includes('strMeasure'))
+                  .filter((ingredient) => ingredient[1] !== '' && ingredient[1] !== null)
+                  .map((response2, index2) => index2 === index && (
+                    (
+                      <span
+                        data-testid={ `${index2}-ingredient-name-and-measure` }
+                        key={ response2[1] }
+                      >
+                        { response2[1] }
+                      </span>
+                    )
+                  ))
+              }
+            </p>
+          ))}
+        </div>
         {/* {arr[0] !== undefined
         && Object.entries(arr[0])
           .filter((value) => value[0].includes('strMeasure'))
@@ -112,31 +117,50 @@ function ShowRecipeDrinks({ revenue, favorite, setFavorite, pathID,
               { response[1] }
             </p>
           ))} */}
-        <p data-testid="instructions">{ recipe.strInstructions }</p>
-        <button type="button" onClick={ copyToClipboard }>
-          <FcShare fontSize={ 40 } data-testid="share-btn" />
-          <ToastContainer />
-        </button>
-        <button
-          type="button"
-          onClick={ () => {
-            setFavorite(!favorite);
-            favoriteRecipeDrink(revenue, pathID);
-          } }
-        >
-          { getFavoriteRecipeFood(pathID)
-            ? <img src={ blackHeartIcon } alt="favorite" data-testid="favorite-btn" />
-            : <img src={ whiteHeartIcon } alt="favorite" data-testid="favorite-btn" /> }
-        </button>
+        <h4 className="how-to">Como fazer:</h4>
+        <div className="desc-container">
+          <p data-testid="instructions">{ recipe.strInstructions }</p>
+        </div>
+        <div className="btn-container">
+          <button className="copy-btn" type="button" onClick={ copyToClipboard }>
+            <FcShare fontSize={ 40 } data-testid="share-btn" />
+            <ToastContainer />
+          </button>
+          <button
+            type="button"
+            className="favorite-btn"
+            onClick={ () => {
+              setFavorite(!favorite);
+              favoriteRecipeDrink(revenue, pathID);
+            } }
+          >
+            { getFavoriteRecipeFood(pathID)
+              ? <img src={ blackHeartIcon } alt="favorite" data-testid="favorite-btn" />
+              : <img src={ whiteHeartIcon } alt="favorite" data-testid="favorite-btn" /> }
+          </button>
+        </div>
+        <h5 className="recomendations">Recomendado</h5>
         <CardCarrossel array={ foods } type="food" />
-        <button
-          type="button"
-          data-testid="start-recipe-btn"
-          className="button-start-recipe"
-          onClick={ startRecipe }
-        >
-          { recipeLocalStorage ? 'Fazer de novo' : 'Iniciar Receita' }
-        </button>
+        <div className="separator" />
+        <div className="details-footer">
+          <div className="footer-flex">
+            <button
+              type="button"
+              data-testid="start-recipe-btn"
+              className="details-footer-btn"
+              onClick={ startRecipe }
+            >
+              { recipeLocalStorage ? 'Fazer de novo' : 'Iniciar Receita' }
+            </button>
+            <button
+              type="button"
+              className="details-footer-btn"
+              onClick={ () => history.push('/bebidas') }
+            >
+              Voltar
+            </button>
+          </div>
+        </div>
       </div>))
   );
 }

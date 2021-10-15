@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import ShowProgress from '../Services/ShowProgress';
+import '../css/details.css';
 
 export default function FoodRecipeInProgress() {
   const { pathname } = useLocation();
@@ -25,7 +26,7 @@ export default function FoodRecipeInProgress() {
   }, [pathname, idType, type]);
 
   return (
-    <div>
+    <div className="details">
       {recipe ? <ShowProgress
         recipe={ recipe[0] }
         ingredients={ ingredients }

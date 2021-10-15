@@ -1,11 +1,3 @@
-.carrossel {
-  display: flex;
-  flex-wrap: wrap;
-  height: 60px;
-  overflow: scroll;
-  width: 120px;
-}
-
 .button-start-recipe {
   bottom: 0;
   position: fixed;

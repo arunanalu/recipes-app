@@ -32,7 +32,7 @@ code {
   margin-bottom: 60px;
 }
 
-footer {
+footer, .details-footer {
   position: fixed;
   bottom: -1px;
   left: 0;

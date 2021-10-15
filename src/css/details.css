@@ -4,9 +4,155 @@
 }
 
 .details-img-container {
-  border: 2px solid black;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.473);
+  height: 200px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
 }
 
 .details-img {
-  width: 100vw;
+  position: absolute;
+  top: -50px;
+  width: 100%;
+}
+
+.details-title-container {
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+}
+
+.details-title-container h4 {
+  display: block;
+  font-size: 35px;
+  margin-left: 30px;
+}
+
+.details-title-container p {
+  display: block;
+  font-size: 14px;
+  font-style: italic;
+  margin-right: 20px;
+  margin-top: 12px;
+}
+
+.details-ingredientes-title {
+  font-weight: 400;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.details-ingredients-container {
+  align-items: center;
+  background-color: rgba(197, 138, 86, 0.267);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px;
+  width: 300px;
+}
+
+.details-ingredients-container p {
+  margin: 10px;
+}
+
+.progress-ingredients-container {
+  align-items: center;
+  background-color: rgba(197, 138, 86, 0.267);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px;
+  width: 300px;
+}
+
+.progress-ingredients-container li {
+  list-style-type: none;
+}
+
+.progress-ingredients-container ul:nth-of-type( 1 ) {
+  margin-top: 26px;
+}
+
+.progress-ingredients-container input {
+  margin-right: 5px;
+}
+
+.how-to {
+  font-weight: 400;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.desc-container {
+  margin: auto;
+  margin-top: 20px;
+  text-align: justify;
+  width: 85vw;
+}
+
+.player-container {
+  border: 2px solid black;
+  margin: auto;
+  margin-top: 40px;
+  width: max-content;
+}
+
+.copy-btn, .favorite-btn {
+  background-color: unset;
+  border: none;
+  height: 50px;
+  margin: 0 20px;
+  width: 50px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.recomendations {
+  font-size: 15px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.carrossel {
+  background-color: rgba(197, 138, 86, 0.267);
+  border: 1px solid rgba(0, 0, 0, 0.027);
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 15px;
+  height: 80px;
+  justify-content: space-evenly;
+  margin: auto;
+  margin-bottom: 80px;
+  margin-top: 10px;
+  overflow: scroll;
+  padding: 10px;
+  text-align: center;
+  width: 180px;
+}
+
+.details-footer-btn {
+  background-color: rgb(100, 61, 37);
+  border: 1px solid black;
+  box-shadow: 0 0 2px black;
+  color: white;
+  font-weight: 400;
+  padding: 0 15px;
+}
+
+.details-footer-btn:disabled {
+  background-color: rgb(99, 71, 53);
+  border: 1px solid rgba(0, 0, 0, 0.253);
+  color: rgba(255, 255, 255, 0.527);
 }
