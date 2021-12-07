@@ -27,7 +27,11 @@
 .details-title-container h4 {
   display: block;
   font-size: 35px;
+  height: 60px;
   margin-left: 30px;
+  max-height: 80px;
+  max-width: 240px;
+  overflow: scroll;
 }
 
 .details-title-container p {

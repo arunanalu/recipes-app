@@ -7,7 +7,7 @@
 
 .profile-email {
   align-items: center;
-  background-color: rgb(80, 45, 23);
+  background-color: rgba(80, 45, 23, 0.781);
   display: flex;
   height: 100px;
   justify-content: center;

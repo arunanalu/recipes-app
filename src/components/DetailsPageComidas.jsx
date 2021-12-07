@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
-import './details.css';
 import myContext from '../context/mycontext';
 import ShowRecipeFood from '../Services/ShowRecipeFood';
 import 'react-toastify/dist/ReactToastify.css';
